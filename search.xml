@@ -1,56 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>QL语言</title>
-    <url>/2022/03/19/----1/</url>
-    <content><![CDATA[<h1 id="SQL语言"><a href="#SQL语言" class="headerlink" title="SQL语言"></a>SQL语言</h1><h2 id="1、模式定义"><a href="#1、模式定义" class="headerlink" title="1、模式定义"></a>1、模式定义</h2><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193540.png"><br>例题：</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193549.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193609.png"></p>
-<h2 id="2、模式删除"><a href="#2、模式删除" class="headerlink" title="2、模式删除"></a>2、模式删除</h2><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193620.png"><br>注：<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193627.png"></p>
-<h2 id="3、表的定义与删除"><a href="#3、表的定义与删除" class="headerlink" title="3、表的定义与删除"></a>3、表的定义与删除</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="/media/16476717067992/16490722012230.jpg"></p>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193650.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193701.png"><br>注：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193713.png"></p>
-<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193723.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193732.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193738.png"></p>
-<h2 id="4、索引的建立与删除"><a href="#4、索引的建立与删除" class="headerlink" title="4、索引的建立与删除"></a>4、索引的建立与删除</h2><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193754.png"></p>
-<h3 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193801.png"><br>注：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193820.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193831.png"></p>
-<h3 id="修改-1"><a href="#修改-1" class="headerlink" title="修改"></a>修改</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193836.png"></p>
-<h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193842.png"></p>
-<h2 id="5、查询"><a href="#5、查询" class="headerlink" title="5、查询"></a>5、查询</h2><h3 id="查询所有列-amp-查询部分列"><a href="#查询所有列-amp-查询部分列" class="headerlink" title="查询所有列&amp;查询部分列"></a>查询所有列&amp;查询部分列</h3><p>例题：</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193944.png"></p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193953.png"></p>
-<h3 id="结果去重"><a href="#结果去重" class="headerlink" title="结果去重"></a>结果去重</h3><pre><code>加上distinct关键词就好了
-放在需要去重打字段的前面
-</code></pre>
-<h3 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h3><p><img src="/media/16476717067992/16490724022115.jpg"></p>
-<pre><code>只要不是空都会算一个，相同的也会算一个
-</code></pre>
-<h3 id="分组查询（group-by，如果要进行筛选，就用having-x3D-where-条件）"><a href="#分组查询（group-by，如果要进行筛选，就用having-x3D-where-条件）" class="headerlink" title="分组查询（group by，如果要进行筛选，就用having&#x3D;where-条件）"></a>分组查询（group by，如果要进行筛选，就用having&#x3D;where-条件）</h3><h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><h4 id="等值连接（自身连接）"><a href="#等值连接（自身连接）" class="headerlink" title="等值连接（自身连接）"></a>等值连接（自身连接）</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194013.png">    </p>
-<pre><code>两个表的笛卡尔积附加一个等值的条件，就用这个条件合在了一起
-</code></pre>
-<h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><h4 id="左连接"><a href="#左连接" class="headerlink" title="左连接"></a>左连接</h4><pre><code>left outer join
-就是把左边这个表和右边那个表根据一个条件连接起来，最后再加上左表剩余的部分
-注：剩余的值虽然保留在结果中，但是会加null
-</code></pre>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194020.png"></p>
-<h3 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h3><pre><code>select 字段（*） from 哪个表 where 该条件存在于 in （一个查询）范围内的数据
-</code></pre>
-<h4 id="带有any-all的子查询"><a href="#带有any-all的子查询" class="headerlink" title="带有any all的子查询"></a>带有any all的子查询</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194027.png"></p>
-<pre><code>找出大于后面范围的所有数据
-</code></pre>
-<h4 id="exists"><a href="#exists" class="headerlink" title="exists"></a>exists</h4><p>例题：</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194035.png"></p>
-<h3 id="集合查询"><a href="#集合查询" class="headerlink" title="集合查询"></a>集合查询</h3><p>并（union）</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194125.png"></p>
-<p>交（intersect）<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194134.png"></p>
-<p>差（except）<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194143.png"></p>
-<h2 id="6、数据的插入、修改、删除"><a href="#6、数据的插入、修改、删除" class="headerlink" title="6、数据的插入、修改、删除"></a>6、数据的插入、修改、删除</h2><h4 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194150.png"></p>
-<h4 id="修改-2"><a href="#修改-2" class="headerlink" title="修改"></a>修改</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194203.png"></p>
-<h4 id="删除-2"><a href="#删除-2" class="headerlink" title="删除"></a>删除</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194214.png"></p>
-<h2 id="7、视图"><a href="#7、视图" class="headerlink" title="7、视图"></a>7、视图</h2><h3 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194221.png"></p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194225.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194232.png"></p>
-<h3 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194249.png"></p>
-<h3 id="查询视图"><a href="#查询视图" class="headerlink" title="查询视图"></a>查询视图</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194259.png"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>关系数据库</title>
     <url>/2022/03/03/---/</url>
     <content><![CDATA[<h1 id="关系数据库"><a href="#关系数据库" class="headerlink" title="关系数据库"></a>关系数据库</h1><pre><code>author：宋丁沣
@@ -122,6 +72,182 @@
 <p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194225.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194232.png"></p>
 <h3 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194249.png"></p>
 <h3 id="查询视图"><a href="#查询视图" class="headerlink" title="查询视图"></a>查询视图</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194259.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>数据挖掘python</title>
+    <url>/2022/03/03/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98python/</url>
+    <content><![CDATA[<h1 id="数据挖掘python"><a href="#数据挖掘python" class="headerlink" title="数据挖掘python"></a>数据挖掘python</h1><hr>
+<h2 id="创建画布"><a href="#创建画布" class="headerlink" title="创建画布"></a>创建画布</h2><pre><code>plt.figure( figsize = （20 ，8），dpi = 80)       
+</code></pre>
+<p>（figsize为画布大小，dpi为清晰度）             </p>
+<h2 id="画点"><a href="#画点" class="headerlink" title="画点"></a>画点</h2><pre><code>plt.plot( [ 1, 2 , 3 , 4 ] , [ 1 , 2 , 3 , 4 ] ，color = &quot; &quot;) 
+</code></pre>
+<p>前面列表为横坐标，后面列表为纵坐标</p>
+<h2 id="保存图像："><a href="#保存图像：" class="headerlink" title="保存图像："></a>保存图像：</h2><pre><code>plt.savefig( ）
+</code></pre>
+<p>注：必须在show前保存</p>
+<h2 id="显示图像："><a href="#显示图像：" class="headerlink" title="显示图像："></a>显示图像：</h2><pre><code>plt.show（ ）
+</code></pre>
+<h2 id="修改刻度"><a href="#修改刻度" class="headerlink" title="修改刻度"></a>修改刻度</h2><pre><code>plt.xticks(  range( 0 , 40 , 5) )
+plt.yticks(  range( 0 , 40 , 5) ) //左闭又开，5为间距
+</code></pre>
+<h2 id="修改坐标名字"><a href="#修改坐标名字" class="headerlink" title="修改坐标名字"></a>修改坐标名字</h2><pre><code>x_ticks_label = [ &quot; 11 ：&#123; &#125; 分 . format ( i ) for i in x ]
+plt.xticks( x [ : : 5 ] , x_ticks_label[ : : 5 ] )
+</code></pre>
+<h2 id="添加网格显示"><a href="#添加网格显示" class="headerlink" title="添加网格显示"></a>添加网格显示</h2><pre><code>plt.grid（ True ，linestyle = “ --”，alpha = 0.5 ）
+</code></pre>
+<h2 id="画散点图"><a href="#画散点图" class="headerlink" title="画散点图"></a>画散点图</h2><pre><code>plt.scatter（ x ，y）
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>高斯消元解线性方程组</title>
+    <url>/2022/03/27/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/</url>
+    <content><![CDATA[<h1 id="高斯消元解线性方程组"><a href="#高斯消元解线性方程组" class="headerlink" title="高斯消元解线性方程组"></a>高斯消元解线性方程组</h1><pre><code>算法基础：数论-高斯消元
+writer：宋丁沣
+参考：lukelmouse 、becomebetter、NgAgo 
+</code></pre>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192104.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192115.png"><br>思考：</p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192127.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192156.png"></p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+
+using namespace std;
+
+const int N = 110;
+const double eps = 1e-6;
+
+int n;
+double a[N][N];
+
+
+int gauss()
+&#123;
+    int c, r;// c 代表 列 col ， r 代表 行 row
+    for (c = 0, r = 0; c &lt; n; c ++ )
+    &#123;
+        int t = r;// 先找到当前这一列，绝对值最大的一个数字所在的行号
+        for (int i = r; i &lt; n; i ++ )
+            if (fabs(a[i][c]) &gt; fabs(a[t][c]))
+             t = i;
+
+    if (fabs(a[t][c]) &lt; eps) continue;// 如果当前这一列的最大数都是 0 ，那么所有数都是 0，就没必要去算了，因为它的约束方程，可能在上面几行
+
+    for (int i = c; i &lt; n + 1; i ++ ) swap(a[t][i], a[r][i]);//// 把当前这一行，换到最上面（不是第一行，是第 r 行）去
+    for (int i = n; i &gt;= c; i -- ) a[r][i] /= a[r][c];// 把当前这一行的第一个数，变成 1， 方程两边同时除以 第一个数，必须要到着算，不然第一个数直接变1，系数就被篡改，后面的数字没法算
+    for (int i = r + 1; i &lt; n; i ++ )// 把当前列下面的所有数，全部消成 0
+        if (fabs(a[i][c]) &gt; eps)// 如果非0 再操作，已经是 0就没必要操作了
+            for (int j = n; j &gt;= c; j -- )// 从后往前，当前行的每个数字，都减去对应列 * 行首非0的数字，这样就能保证第一个数字是 a[i][0] -= 1*a[i][0];
+                a[i][j] -= a[r][j] * a[i][c];
+
+    r ++ ;// 这一行的工作做完，换下一行
+&#125;
+
+if (r &lt; n)// 说明剩下方程的个数是小于 n 的，说明不是唯一解，判断是无解还是无穷多解
+&#123;// 因为已经是阶梯型，所以 r ~ n-1 的值应该都为 0
+    for (int i = r; i &lt; n; i ++ )// 
+        if (fabs(a[i][n]) &gt; eps)// a[i][n] 代表 b_i ,即 左边=0，右边=b_i,0 != b_i, 所以无解。
+            return 2;
+    return 1;// 否则， 0 = 0，就是r ~ n-1的方程都是多余方程
+&#125;
+// 唯一解 ↓，从下往上回代，得到方程的解
+for (int i = n - 1; i &gt;= 0; i -- )
+    for (int j = i + 1; j &lt; n; j ++ )
+        a[i][n] -= a[j][n] * a[i][j];//因为只要得到解，所以只用对 b_i 进行操作，中间的值，可以不用操作，因为不用输出
+
+return 0;
+&#125;
+
+int main()
+&#123;
+    cin &gt;&gt; n;
+    for (int i = 0; i &lt; n; i ++ )
+        for (int j = 0; j &lt; n + 1; j ++ )
+            cin &gt;&gt; a[i][j];
+
+    int t = gauss();
+
+    if (t == 0)
+    &#123;
+        for (int i = 0; i &lt; n; i ++ ) printf(&quot;%.2lf\n&quot;, a[i][n]);
+    &#125;
+    else if (t == 1) puts(&quot;Infinite group solutions&quot;);
+    else puts(&quot;No solution&quot;);
+
+return 0;
+&#125;
+</code></pre>
+<h3 id="解注：前面的过程做完之后，保证了是一个每行第一个都为1的行阶梯矩阵，但是每一行并不是只有一个，还可能存在后面几个，比如为"><a href="#解注：前面的过程做完之后，保证了是一个每行第一个都为1的行阶梯矩阵，但是每一行并不是只有一个，还可能存在后面几个，比如为" class="headerlink" title="解注：前面的过程做完之后，保证了是一个每行第一个都为1的行阶梯矩阵，但是每一行并不是只有一个，还可能存在后面几个，比如为:"></a>解注：前面的过程做完之后，保证了是一个每行第一个都为1的行阶梯矩阵，但是每一行并不是只有一个，还可能存在后面几个，比如为:</h3><h3 id="1-3-0-5"><a href="#1-3-0-5" class="headerlink" title="[1 3 0 5"></a>[1 3 0 5</h3><h3 id="0-1-2-3"><a href="#0-1-2-3" class="headerlink" title="0 1 2 3"></a>0 1 2 3</h3><h3 id="0-0-1-2"><a href="#0-0-1-2" class="headerlink" title="0 0 1 2],"></a>0 0 1 2],</h3><h3 id="要求得最后的答案，即最后一列，就要用最后一列减去除了每一列xi之外的所有其他数，比如对于第二行来说，表达的就是x2-2x3-x3D-3，那么x2-x3D-3-2x3，因为x2的系数为1。又因为每一列都表示的是一个x，整个第三列都是x3-由第三行知，x3-x3D-2-所以说a-j-n-表示的就是xj的值，因为n为最后一列-j为i-1，表示i的下一行，所以说a-j-n-就是xj的值，a-i-j-表示的xj的系数，所以减去就得到xi的值。"><a href="#要求得最后的答案，即最后一列，就要用最后一列减去除了每一列xi之外的所有其他数，比如对于第二行来说，表达的就是x2-2x3-x3D-3，那么x2-x3D-3-2x3，因为x2的系数为1。又因为每一列都表示的是一个x，整个第三列都是x3-由第三行知，x3-x3D-2-所以说a-j-n-表示的就是xj的值，因为n为最后一列-j为i-1，表示i的下一行，所以说a-j-n-就是xj的值，a-i-j-表示的xj的系数，所以减去就得到xi的值。" class="headerlink" title="要求得最后的答案，即最后一列，就要用最后一列减去除了每一列xi之外的所有其他数，比如对于第二行来说，表达的就是x2+2x3&#x3D;3，那么x2&#x3D;3-2x3，因为x2的系数为1。又因为每一列都表示的是一个x，整个第三列都是x3,由第三行知，x3&#x3D;2,所以说a[j][n]表示的就是xj的值，因为n为最后一列,j为i+1，表示i的下一行，所以说a[j][n]就是xj的值，a[i][j]表示的xj的系数，所以减去就得到xi的值。"></a>要求得最后的答案，即最后一列，就要用最后一列减去除了每一列xi之外的所有其他数，比如对于第二行来说，表达的就是x2+2x3&#x3D;3，那么x2&#x3D;3-2x3，因为x2的系数为1。又因为每一列都表示的是一个x，整个第三列都是x3,由第三行知，x3&#x3D;2,所以说a[j][n]表示的就是xj的值，因为n为最后一列,j为i+1，表示i的下一行，所以说a[j][n]就是xj的值，a[i][j]表示的xj的系数，所以减去就得到xi的值。</h3><p>高斯消元最难理解：往回推的最后一步</p>
+<pre><code> for (int i = n - 1; i &gt;= 0; i -- )
+    for (int j = i + 1; j &lt; n; j ++ )
+        a[i][n] -= a[j][n] * a[i][j];
+</code></pre>
+<p>这里的 i，j 其实代表的是 xi和xj，对于 i 行中的 xj对应的系数是 a[i][j],而a[i][n]则代表了此时 i 行的多项式的结果，为了得到xi的解（xi的系数是1）就需要此时的结果减去后面的多项式的和即</p>
+<pre><code>for(int j = i + 1; j &lt; n; j ++ )
+a[i][n] -= a[j][n] * a[i][j];//x_j * x_j的系数
+</code></pre>
+<p>其中a[j][n]代表xj的的值（因为j行只有xj和结果这两项）</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>曼哈顿距离</title>
+    <url>/2022/03/31/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB/</url>
+    <content><![CDATA[<h1 id="曼哈顿距离"><a href="#曼哈顿距离" class="headerlink" title="曼哈顿距离"></a>曼哈顿距离</h1><pre><code>算法进阶：曼哈顿距离
+writer：宋丁沣
+参考：M_WHY、Kelin
+</code></pre>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404191135.png"></p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404191226.png"></p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404191239.png"></p>
+<p>思考：</p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404191309.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404191316.png"></p>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+#define IL inline
+using namespace std;
+IL int read()&#123;
+   int x=0,f=1; char c=getchar();
+   while(c&lt;&#39;0&#39;||c&gt;&#39;9&#39;)&#123;if(c==&#39;-&#39;)f=-1; c=getchar();&#125;
+   while(c&gt;=&#39;0&#39;&amp;&amp;c&lt;=&#39;9&#39;)&#123;x=x*10+c-&#39;0&#39;; c=getchar();&#125;
+   return x*f; &#125;
+IL int max(int a,int b)&#123; return a&gt;b?a:b; &#125;
+IL int min(int a,int b)&#123; return a&lt;b?a:b; &#125;
+const int N=1000010,inv=0x3f3f3f3f;
+int cnts[]=&#123;2,4,8,16&#125;;
+int a[N][6],n,d,cnt,add[20][N],anss=0;
+int main()
+&#123;
+   n=read(); d=read(); cnt=cnts[d-1];
+   for(int i=1;i&lt;=n;i++)
+   &#123;
+      for(int j=1;j&lt;=d;j++)
+         a[i][j]=read();
+      for(int j=0;j&lt;cnt;j++) // 用一个十进制数枚举所有符号情况
+      &#123;
+         int tmp=j;
+         for(int k=1;k&lt;=d;k++)
+         &#123;
+                if(tmp&amp;1) add[j][i]+=a[i][k]; // 正号情况
+                else add[j][i]-=a[i][k]; // 负号情况
+                tmp&gt;&gt;=1;
+         &#125;
+      &#125;
+   &#125;
+   for(int i=0;i&lt;cnt;i++)
+   &#123;
+      int maxx=-inv,minn=inv;
+      for(int j=1;j&lt;=n;j++) // 找到每一种情况的最大最小值直接相减即可
+      &#123;
+         maxx=max(maxx,add[i][j]);
+         minn=min(minn,add[i][j]);
+      &#125;
+      anss=max(anss,maxx-minn);
+   &#125;
+   cout&lt;&lt;anss;
+   return 0;
+&#125;
+</code></pre>
 ]]></content>
   </entry>
   <entry>
@@ -225,182 +351,6 @@ e2.setHiredate(Date.valueOf(&quot;2019-08-02&quot;));
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-]]></content>
-  </entry>
-  <entry>
-    <title>数据挖掘python</title>
-    <url>/2022/03/03/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98python/</url>
-    <content><![CDATA[<h1 id="数据挖掘python"><a href="#数据挖掘python" class="headerlink" title="数据挖掘python"></a>数据挖掘python</h1><hr>
-<h2 id="创建画布"><a href="#创建画布" class="headerlink" title="创建画布"></a>创建画布</h2><pre><code>plt.figure( figsize = （20 ，8），dpi = 80)       
-</code></pre>
-<p>（figsize为画布大小，dpi为清晰度）             </p>
-<h2 id="画点"><a href="#画点" class="headerlink" title="画点"></a>画点</h2><pre><code>plt.plot( [ 1, 2 , 3 , 4 ] , [ 1 , 2 , 3 , 4 ] ，color = &quot; &quot;) 
-</code></pre>
-<p>前面列表为横坐标，后面列表为纵坐标</p>
-<h2 id="保存图像："><a href="#保存图像：" class="headerlink" title="保存图像："></a>保存图像：</h2><pre><code>plt.savefig( ）
-</code></pre>
-<p>注：必须在show前保存</p>
-<h2 id="显示图像："><a href="#显示图像：" class="headerlink" title="显示图像："></a>显示图像：</h2><pre><code>plt.show（ ）
-</code></pre>
-<h2 id="修改刻度"><a href="#修改刻度" class="headerlink" title="修改刻度"></a>修改刻度</h2><pre><code>plt.xticks(  range( 0 , 40 , 5) )
-plt.yticks(  range( 0 , 40 , 5) ) //左闭又开，5为间距
-</code></pre>
-<h2 id="修改坐标名字"><a href="#修改坐标名字" class="headerlink" title="修改坐标名字"></a>修改坐标名字</h2><pre><code>x_ticks_label = [ &quot; 11 ：&#123; &#125; 分 . format ( i ) for i in x ]
-plt.xticks( x [ : : 5 ] , x_ticks_label[ : : 5 ] )
-</code></pre>
-<h2 id="添加网格显示"><a href="#添加网格显示" class="headerlink" title="添加网格显示"></a>添加网格显示</h2><pre><code>plt.grid（ True ，linestyle = “ --”，alpha = 0.5 ）
-</code></pre>
-<h2 id="画散点图"><a href="#画散点图" class="headerlink" title="画散点图"></a>画散点图</h2><pre><code>plt.scatter（ x ，y）
-</code></pre>
-]]></content>
-  </entry>
-  <entry>
-    <title>曼哈顿距离</title>
-    <url>/2022/03/31/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB/</url>
-    <content><![CDATA[<h1 id="曼哈顿距离"><a href="#曼哈顿距离" class="headerlink" title="曼哈顿距离"></a>曼哈顿距离</h1><pre><code>算法进阶：曼哈顿距离
-writer：宋丁沣
-参考：M_WHY、Kelin
-</code></pre>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404191135.png"></p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404191226.png"></p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404191239.png"></p>
-<p>思考：</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404191309.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404191316.png"></p>
-<pre><code>#include&lt;bits/stdc++.h&gt;
-#define IL inline
-using namespace std;
-IL int read()&#123;
-   int x=0,f=1; char c=getchar();
-   while(c&lt;&#39;0&#39;||c&gt;&#39;9&#39;)&#123;if(c==&#39;-&#39;)f=-1; c=getchar();&#125;
-   while(c&gt;=&#39;0&#39;&amp;&amp;c&lt;=&#39;9&#39;)&#123;x=x*10+c-&#39;0&#39;; c=getchar();&#125;
-   return x*f; &#125;
-IL int max(int a,int b)&#123; return a&gt;b?a:b; &#125;
-IL int min(int a,int b)&#123; return a&lt;b?a:b; &#125;
-const int N=1000010,inv=0x3f3f3f3f;
-int cnts[]=&#123;2,4,8,16&#125;;
-int a[N][6],n,d,cnt,add[20][N],anss=0;
-int main()
-&#123;
-   n=read(); d=read(); cnt=cnts[d-1];
-   for(int i=1;i&lt;=n;i++)
-   &#123;
-      for(int j=1;j&lt;=d;j++)
-         a[i][j]=read();
-      for(int j=0;j&lt;cnt;j++) // 用一个十进制数枚举所有符号情况
-      &#123;
-         int tmp=j;
-         for(int k=1;k&lt;=d;k++)
-         &#123;
-                if(tmp&amp;1) add[j][i]+=a[i][k]; // 正号情况
-                else add[j][i]-=a[i][k]; // 负号情况
-                tmp&gt;&gt;=1;
-         &#125;
-      &#125;
-   &#125;
-   for(int i=0;i&lt;cnt;i++)
-   &#123;
-      int maxx=-inv,minn=inv;
-      for(int j=1;j&lt;=n;j++) // 找到每一种情况的最大最小值直接相减即可
-      &#123;
-         maxx=max(maxx,add[i][j]);
-         minn=min(minn,add[i][j]);
-      &#125;
-      anss=max(anss,maxx-minn);
-   &#125;
-   cout&lt;&lt;anss;
-   return 0;
-&#125;
-</code></pre>
-]]></content>
-  </entry>
-  <entry>
-    <title>高斯消元解线性方程组</title>
-    <url>/2022/03/27/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/</url>
-    <content><![CDATA[<h1 id="高斯消元解线性方程组"><a href="#高斯消元解线性方程组" class="headerlink" title="高斯消元解线性方程组"></a>高斯消元解线性方程组</h1><pre><code>算法基础：数论-高斯消元
-writer：宋丁沣
-参考：lukelmouse 、becomebetter、NgAgo 
-</code></pre>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192104.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192115.png"><br>思考：</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192127.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192156.png"></p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-
-using namespace std;
-
-const int N = 110;
-const double eps = 1e-6;
-
-int n;
-double a[N][N];
-
-
-int gauss()
-&#123;
-    int c, r;// c 代表 列 col ， r 代表 行 row
-    for (c = 0, r = 0; c &lt; n; c ++ )
-    &#123;
-        int t = r;// 先找到当前这一列，绝对值最大的一个数字所在的行号
-        for (int i = r; i &lt; n; i ++ )
-            if (fabs(a[i][c]) &gt; fabs(a[t][c]))
-             t = i;
-
-    if (fabs(a[t][c]) &lt; eps) continue;// 如果当前这一列的最大数都是 0 ，那么所有数都是 0，就没必要去算了，因为它的约束方程，可能在上面几行
-
-    for (int i = c; i &lt; n + 1; i ++ ) swap(a[t][i], a[r][i]);//// 把当前这一行，换到最上面（不是第一行，是第 r 行）去
-    for (int i = n; i &gt;= c; i -- ) a[r][i] /= a[r][c];// 把当前这一行的第一个数，变成 1， 方程两边同时除以 第一个数，必须要到着算，不然第一个数直接变1，系数就被篡改，后面的数字没法算
-    for (int i = r + 1; i &lt; n; i ++ )// 把当前列下面的所有数，全部消成 0
-        if (fabs(a[i][c]) &gt; eps)// 如果非0 再操作，已经是 0就没必要操作了
-            for (int j = n; j &gt;= c; j -- )// 从后往前，当前行的每个数字，都减去对应列 * 行首非0的数字，这样就能保证第一个数字是 a[i][0] -= 1*a[i][0];
-                a[i][j] -= a[r][j] * a[i][c];
-
-    r ++ ;// 这一行的工作做完，换下一行
-&#125;
-
-if (r &lt; n)// 说明剩下方程的个数是小于 n 的，说明不是唯一解，判断是无解还是无穷多解
-&#123;// 因为已经是阶梯型，所以 r ~ n-1 的值应该都为 0
-    for (int i = r; i &lt; n; i ++ )// 
-        if (fabs(a[i][n]) &gt; eps)// a[i][n] 代表 b_i ,即 左边=0，右边=b_i,0 != b_i, 所以无解。
-            return 2;
-    return 1;// 否则， 0 = 0，就是r ~ n-1的方程都是多余方程
-&#125;
-// 唯一解 ↓，从下往上回代，得到方程的解
-for (int i = n - 1; i &gt;= 0; i -- )
-    for (int j = i + 1; j &lt; n; j ++ )
-        a[i][n] -= a[j][n] * a[i][j];//因为只要得到解，所以只用对 b_i 进行操作，中间的值，可以不用操作，因为不用输出
-
-return 0;
-&#125;
-
-int main()
-&#123;
-    cin &gt;&gt; n;
-    for (int i = 0; i &lt; n; i ++ )
-        for (int j = 0; j &lt; n + 1; j ++ )
-            cin &gt;&gt; a[i][j];
-
-    int t = gauss();
-
-    if (t == 0)
-    &#123;
-        for (int i = 0; i &lt; n; i ++ ) printf(&quot;%.2lf\n&quot;, a[i][n]);
-    &#125;
-    else if (t == 1) puts(&quot;Infinite group solutions&quot;);
-    else puts(&quot;No solution&quot;);
-
-return 0;
-&#125;
-</code></pre>
-<h3 id="解注：前面的过程做完之后，保证了是一个每行第一个都为1的行阶梯矩阵，但是每一行并不是只有一个，还可能存在后面几个，比如为"><a href="#解注：前面的过程做完之后，保证了是一个每行第一个都为1的行阶梯矩阵，但是每一行并不是只有一个，还可能存在后面几个，比如为" class="headerlink" title="解注：前面的过程做完之后，保证了是一个每行第一个都为1的行阶梯矩阵，但是每一行并不是只有一个，还可能存在后面几个，比如为:"></a>解注：前面的过程做完之后，保证了是一个每行第一个都为1的行阶梯矩阵，但是每一行并不是只有一个，还可能存在后面几个，比如为:</h3><h3 id="1-3-0-5"><a href="#1-3-0-5" class="headerlink" title="[1 3 0 5"></a>[1 3 0 5</h3><h3 id="0-1-2-3"><a href="#0-1-2-3" class="headerlink" title="0 1 2 3"></a>0 1 2 3</h3><h3 id="0-0-1-2"><a href="#0-0-1-2" class="headerlink" title="0 0 1 2],"></a>0 0 1 2],</h3><h3 id="要求得最后的答案，即最后一列，就要用最后一列减去除了每一列xi之外的所有其他数，比如对于第二行来说，表达的就是x2-2x3-x3D-3，那么x2-x3D-3-2x3，因为x2的系数为1。又因为每一列都表示的是一个x，整个第三列都是x3-由第三行知，x3-x3D-2-所以说a-j-n-表示的就是xj的值，因为n为最后一列-j为i-1，表示i的下一行，所以说a-j-n-就是xj的值，a-i-j-表示的xj的系数，所以减去就得到xi的值。"><a href="#要求得最后的答案，即最后一列，就要用最后一列减去除了每一列xi之外的所有其他数，比如对于第二行来说，表达的就是x2-2x3-x3D-3，那么x2-x3D-3-2x3，因为x2的系数为1。又因为每一列都表示的是一个x，整个第三列都是x3-由第三行知，x3-x3D-2-所以说a-j-n-表示的就是xj的值，因为n为最后一列-j为i-1，表示i的下一行，所以说a-j-n-就是xj的值，a-i-j-表示的xj的系数，所以减去就得到xi的值。" class="headerlink" title="要求得最后的答案，即最后一列，就要用最后一列减去除了每一列xi之外的所有其他数，比如对于第二行来说，表达的就是x2+2x3&#x3D;3，那么x2&#x3D;3-2x3，因为x2的系数为1。又因为每一列都表示的是一个x，整个第三列都是x3,由第三行知，x3&#x3D;2,所以说a[j][n]表示的就是xj的值，因为n为最后一列,j为i+1，表示i的下一行，所以说a[j][n]就是xj的值，a[i][j]表示的xj的系数，所以减去就得到xi的值。"></a>要求得最后的答案，即最后一列，就要用最后一列减去除了每一列xi之外的所有其他数，比如对于第二行来说，表达的就是x2+2x3&#x3D;3，那么x2&#x3D;3-2x3，因为x2的系数为1。又因为每一列都表示的是一个x，整个第三列都是x3,由第三行知，x3&#x3D;2,所以说a[j][n]表示的就是xj的值，因为n为最后一列,j为i+1，表示i的下一行，所以说a[j][n]就是xj的值，a[i][j]表示的xj的系数，所以减去就得到xi的值。</h3><p>高斯消元最难理解：往回推的最后一步</p>
-<pre><code> for (int i = n - 1; i &gt;= 0; i -- )
-    for (int j = i + 1; j &lt; n; j ++ )
-        a[i][n] -= a[j][n] * a[i][j];
-</code></pre>
-<p>这里的 i，j 其实代表的是 xi和xj，对于 i 行中的 xj对应的系数是 a[i][j],而a[i][n]则代表了此时 i 行的多项式的结果，为了得到xi的解（xi的系数是1）就需要此时的结果减去后面的多项式的和即</p>
-<pre><code>for(int j = i + 1; j &lt; n; j ++ )
-a[i][n] -= a[j][n] * a[i][j];//x_j * x_j的系数
-</code></pre>
-<p>其中a[j][n]代表xj的的值（因为j行只有xj和结果这两项）</p>
 ]]></content>
   </entry>
 </search>
