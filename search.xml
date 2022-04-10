@@ -1,8 +1,1016 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>对学委工作的建议</title>
+    <url>/2022/04/10/----10/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>位运算</title>
+    <url>/2022/04/07/----7/</url>
+    <content><![CDATA[<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407135412.png"><br>解：</p>
+<pre><code>负数也可以算
+#include&lt;iostream&gt;
+using namespace std;
+int n,i,a[100005],k,x;
+int check(int x)&#123;
+    int res=0;
+    while(x!=0)&#123;
+        x=x&amp;(x-1);
+        res++;
+    &#125;
+    return res;
+&#125;
+int main()&#123;
+    cin&gt;&gt;n;
+    while (n--) &#123;
+        k=0;
+        cin&gt;&gt;x;
+        cout&lt;&lt;check(x);
+    &#125;
+    return 0;
+    
+&#125;
+</code></pre>
+<p>&amp;&amp; </p>
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+int lowbit(int x)&#123;
+    return x&amp;(-x);
+&#125;
+int main()&#123;
+    int x;
+    cin&gt;&gt;x;
+    int res=0;
+    while (x!=0) &#123;
+        x-=lowbit(x);
+        res++;
+    &#125;
+    cout&lt;&lt;res&lt;&lt;&quot; &quot;;
+    return 0;
+&#125;
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>单调栈</title>
+    <url>/2022/04/07/----8/</url>
+    <content><![CDATA[<h2 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h2><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407150929.png"><br>解：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+vector&lt;int &gt;a;
+int main()&#123;
+    int n;
+    cin&gt;&gt;n;
+    while (n--) &#123;
+        int x;
+        scanf(&quot;%d&quot;,&amp;x);
+        if(a.size()==0)&#123;
+            cout&lt;&lt;&quot;-1 &quot;;
+            a.push_back(x);
+        &#125;
+        else if(a.back()&lt;x)&#123;
+            cout&lt;&lt;a.back()&lt;&lt;&quot; &quot;;
+            a.push_back(x);
+        &#125;
+        else &#123;
+            while (a.back()&gt;=x&amp;&amp;a.size()!=0) &#123;
+                a.pop_back();
+            &#125;
+            if(a.size()==0)cout&lt;&lt;&quot;-1 &quot;;
+            else cout&lt;&lt;a.back()&lt;&lt;&quot; &quot;;
+            a.push_back(x);
+        &#125;
+        
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<p>&amp;&amp;</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+const int N = 100010;
+int stk[N], tt;
+
+int main()
+&#123;
+    int n;
+    cin &gt;&gt; n;
+    while (n -- )
+    &#123;
+        int x;
+        scanf(&quot;%d&quot;, &amp;x);
+        while (tt &amp;&amp; stk[tt] &gt;= x) tt -- ;//如果栈顶元素大于当前待入栈元素，则出栈
+        if (!tt) printf(&quot;-1 &quot;);//如果栈空，则没有比该元素小的值。
+        else printf(&quot;%d &quot;, stk[tt]);//栈顶元素就是左侧第一个比它小的元素。
+        stk[ ++ tt] = x;
+    &#125;
+    return 0;
+&#125;
+
+</code></pre>
+<p>思路：<br><img src="https://img-blog.csdnimg.cn/20201211221031165.gif#pic_center"></p>
+<hr>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407155839.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407155854.png"><br>解：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+#include&lt;queue&gt;
+using namespace std;
+const int N=1000010;
+int a[N],q[N],hh,tt=-1;
+int main()&#123;
+    int n,k;
+    cin&gt;&gt;n&gt;&gt;k;
+    for(int i=0;i&lt;n;i++)&#123;
+        scanf(&quot;%d&quot;,&amp;a[i]);
+        if(i-k+1&gt;q[hh])++hh;
+        while(hh&lt;=tt&amp;&amp;a[i]&lt;=a[q[tt]])tt--;
+        q[++tt]=i;
+        if(i+1&gt;=k)cout&lt;&lt;a[q[hh]]&lt;&lt;&quot; &quot;;
+    &#125;
+    cout&lt;&lt;endl;
+    hh=0;
+    tt=-1;
+    for(int i=0;i&lt;n;i++)&#123;
+        if(i-k+1&gt;q[hh])++hh;
+        while(hh&lt;=tt&amp;&amp;a[i]&gt;=a[q[tt]])--tt;
+        q[++tt]=i;
+        if(i+1&gt;=k)cout&lt;&lt;a[q[hh]]&lt;&lt;&quot; &quot;;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407155944.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>算法笔记</title>
+    <url>/2022/04/08/----9/</url>
+    <content><![CDATA[<h2 id="算法笔记"><a href="#算法笔记" class="headerlink" title="算法笔记"></a>算法笔记</h2><p>1、判定质数：</p>
+<pre><code>一般做法：
+bool is_prime(long long int x)//注意判定质数时全部开long long 
+&#123;
+    if(x&lt;2)return 0;
+    for(long long int i=2;i*i&lt;=x;i++)//注意范围i*i&lt;=n即可
+    &#123;
+        if(x%i==0)return 0;
+    &#125;
+    return 1;
+&#125;
+质数筛：线性筛
+void get_primes(int n)//每个质数乘一遍自己前面的质数，这样就能保证每个合数只被自己的最小质因子排除
+&#123;
+   for(int i = 2;i&lt;=n;i++)
+   &#123;
+      if(!st[i]) primes[cnt++]=i;
+      for(int j=0;primes[j]*i&lt;=n;j++)
+      &#123;
+         st[primes[j]*i] = true ;
+         if(i % primes[j] == 0) break ;
+      &#125;
+   &#125;
+&#125;
+</code></pre>
+<p>2、分解质因数<br>根据：<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220408190953.png"></p>
+<p>重复除于2、3、5、7 …<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220408191122.png"></p>
+<p>3、求约数个数<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220408193314.png"></p>
+<p>根据：</p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220408193353.png"></p>
+<pre><code>while(n--)
+&#123;
+    int x;
+    cin&gt;&gt;x;
+    for(int i=2;i&lt;=x/i;i++)
+    &#123;
+        while(x%i==0)
+        &#123;
+            x=x/i;
+            primes[i]++;
+        &#125;
+    &#125;
+    if(x&gt;1)primes[x]++;
+&#125;
+long long res=1;
+for(auto it:primes)res=res*(it.second+1)%(int)(1e9+7);
+</code></pre>
+<p>3、约数之和</p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220408193640.png"></p>
+<p>4、最大公约数</p>
+<pre><code>int gcd(int a ,int b)
+&#123;
+   return b?gcd(b,a%b):a;
+&#125;
+</code></pre>
+<p>5、快速幂</p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220408194538.png"></p>
+<pre><code>while(n--)
+&#123;
+    cin&gt;&gt;a&gt;&gt;b&gt;&gt;p;
+    long long int res=1%p;
+    while(b)
+    &#123;
+        if(b&amp;1)res=res*a%p;
+        b&gt;&gt;=1;
+        a=a*a%p;
+    &#125;
+    cout&lt;&lt;res&lt;&lt;endl;
+&#125;
+</code></pre>
+<p>6、快速找第几小个数：</p>
+<pre><code>    nth_element(a,x,a+n);
+    只改变第x位的数，其他数不改变
+</code></pre>
+<p>7、逆序对的数量（归并排序）</p>
+<pre><code>要求结果的题记得加long long 
+
+void merge_sort(int q[],int l,int r)&#123;
+if(l&gt;=r)return ;
+int mid=(r+l)&gt;&gt;1;
+merge_sort(q, l, mid);
+merge_sort(q, mid+1,r);//注意这里mid+1
+int i=l,j=mid+1,k=0;//i,j是双指针，初始状态分别指向每一块中第一个数
+while(i&lt;=mid&amp;&amp;j&lt;=r)&#123;
+    if(q[i]&lt;=q[j])tmp[k++]=q[i++];//&lt;=
+    else &#123;
+        tmp[k++]=q[j++];
+        ans+=(mid-i+1);//应该减去i，不然会重复减
+    &#125;
+&#125;
+while(i&lt;=mid)tmp[k++]=q[i++];
+while(j&lt;=r)tmp[k++]=q[j++];
+for(int i=l,k=0;i&lt;=r;i++,k++)q[i]=tmp[k];
+&#125;
+</code></pre>
+<p>8、在升序中找某个数存在的位置范围</p>
+<pre><code>二分查找：
+int k=lower_bound(a,a+n, l)-a;
+第一个大于或者等于该数的地址
+如果不存在则判断a【k】是否等于该值
+int h=upper_bound(a,a+n,l)-a-1;
+第一个大于该数的地址
+</code></pre>
+<p>9、答案一定在某个范围</p>
+<pre><code>二分查找：
+    // 确定边界值
+double l = -100000, r = 100000;
+// 注意循环条件处理精度问题
+while (r - l &gt; 1e-8) &#123;
+    // 步骤 A: 找中间值
+    double mid = (l + r) / 2;
+    // 步骤 B: 判断
+    if (mid * mid * mid &lt; x) l = mid;
+    else r = mid;
+&#125;
+</code></pre>
+<p>10、在一个区间加上一个值（差分）</p>
+<pre><code>差分矩阵可以把第一个数连接到上一排的最后一个数上
+    if(j!=1)s[i][j]=a[i][j]-a[i][j-1];
+    else s[i][j]=a[i][j]-a[i-1][m];
+</code></pre>
+<p>11、最长连续不重复子序列</p>
+<pre><code>  for(int i=0,j=0;i&lt;n;i++)
+&#123;
+    b[a[i]]++;/
+    while(b[a[i]]&gt;1)b[a[j++]]--;
+    maxl=max(maxl,i-j+1);
+&#125;
+</code></pre>
+<p>12、判断A序列是否为B的子序列</p>
+<pre><code>    for(int j=0;j&lt;m;j++)
+       if(i&lt;n&amp;&amp;a[i]==b[j])i++;
+       if(i==n)cout&lt;&lt;&quot;Yes&quot;&lt;&lt;endl;
+</code></pre>
+<p>13、判断x的二进制1的个数</p>
+<pre><code>int check(int x)&#123;
+int res=0;
+while(x!=0)&#123;
+    x=x&amp;(x-1);//或者x-=x&amp;(-x)
+    res++;
+   &#125;
+   return res;
+ &#125;
+</code></pre>
+<p>14、输出每个数左边第一个比他小的数（单调栈）<br><img src="https://img-blog.csdnimg.cn/20201211221031165.gif#pic_center"></p>
+<p>15、滑动窗口</p>
+<pre><code>if(i-k+1&gt;q[hh])++hh;//q【】储存的是坐标
+while(hh&lt;=tt&amp;&amp;a[i]&lt;=a[q[tt]])tt--;
+q[++tt]=i;
+if(i+1&gt;=k)cout&lt;&lt;a[q[hh]]&lt;&lt;&quot; &quot;;
+</code></pre>
+<p>16、询问一个字符串在集合中出现了多少次（Trie字符串统计）<br>    最大异或值，将每个数按照二进制储存在树中</p>
+<pre><code>void insert(char *str)
+&#123;
+    int p = 0;  //类似指针，指向当前节点
+    for(int i = 0; str[i]; i++)
+    &#123;
+        int u = str[i] - &#39;a&#39;; //将字母转化为数字
+        if(!son[p][u]) son[p][u] = ++idx;   //该节点不存在，创建节点
+        p = son[p][u];  //使“p指针”指向下一个节点
+    &#125;
+    cnt[p]++;  //结束时的标记，也是记录以此节点结束的字符串个数
+&#125;
+
+int query(char *str)
+&#123;
+    int p = 0;
+    for(int i = 0; str[i]; i++)
+    &#123;
+        int u = str[i] - &#39;a&#39;;
+        if(!son[p][u]) return 0;  //该节点不存在，即该字符串不存在
+        p = son[p][u]; 
+    &#125;
+    return cnt[p];  //返回字符串出现的次数
+&#125;
+
+</code></pre>
+<p>17、并查集</p>
+<pre><code>int find(int x)
+&#123;
+    if(p[x]!=x)p[x]=find(p[x]);
+    return p[x];
+&#125;
+    if(op[0]==&#39;M&#39;)p[find(a)]=find(b);
+        else 
+        &#123;
+                if(find(a)==find(b))cout&lt;&lt;&quot;Yes\n&quot;;
+                else cout&lt;&lt;&quot;No\n&quot;;
+        &#125;
+</code></pre>
+<p>18、哈希表</p>
+<pre><code>int find(int x) &#123;
+    int t = (x % N + N) % N;
+    while (h[t] != null &amp;&amp; h[t] != x) &#123;
+        t++;
+        if (t == N) &#123;
+            t = 0;
+        &#125;
+    &#125;
+    return t;  //如果这个位置是空的, 则返回的是他应该存储的位置
+&#125;
+</code></pre>
+<p>19、两个区间所包含的字符串子串是否完全相同（字符串哈希）</p>
+<pre><code>一定要开longlong
+ULL query(int l,int r)&#123;
+return h[r] - h[l-1]*p[r-l+1];
+&#125;
+    //字符串从1开始编号，h[1]为前一个字符的哈希值
+p[0] = 1;
+h[0] = 0;
+for(int i=0;i&lt;n;i++)&#123;
+    p[i+1] = p[i]*P;            
+    h[i+1] = h[i]*P +x[i];      //前缀和求整个字符串的哈希值
+&#125;
+</code></pre>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220408225059.png"></p>
+<p>20、一共多少种情况（dfs）</p>
+<ol>
+<li>先判断最终情况，遍历输出</li>
+<li>for循环遍历</li>
+<li>根据各种情况，设置递归下一步的条件</li>
+<li>st[x]&#x3D;1;标记</li>
+<li>fun（u+1）</li>
+<li>st[x]&#x3D;0;还原<br>&#96;&#96;&#96;<br>一串数字的全排列</li>
+</ol>
+<p>void dfs(int u)<br>{<br>    if(u &gt; n)&#x2F;&#x2F;数字填完了，输出<br>    {<br>        for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#x2F;&#x2F;输出方案<br>            cout &lt;&lt; path[i] &lt;&lt; “ “;<br>        cout &lt;&lt; endl;<br>    }</p>
+<pre><code>for(int i = 1; i &lt;= n; i++)//空位上可以选择的数字为:1 ~ n
+&#123;
+    if(!state[i])//如果数字 i 没有被用过
+    &#123;
+        path[u] = i;//放入空位
+        state[i] = 1;//数字被用，修改状态
+        dfs(u + 1);//填下一个位
+        state[i] = 0;//回溯，取出 i
+    &#125;
+&#125;
+</code></pre>
+<p>}</p>
+<p>&amp;&amp;</p>
+<p>next_permutation,这个函数其实求的是这个排列的下一个排列，若以是最后一个排列，就返回false</p>
+<pre><code>for(int i=1;i&lt;=n;i++)a[i]=i,printf(&quot;%d &quot;,i);
+while(next_permutation(a+1,a+1+n))&#123;
+    printf(&quot;\n&quot;);
+    for(int i=1;i&lt;=n;i++)printf(&quot;%d &quot;,a[i]);
+&#125;
+</code></pre>
+<pre><code>
+在处理斜线的时候
+bool dg【N】，udg【N】
+对角线 dg[x+y],dg[i]代表不同斜率的斜线
+反对角线udg[n−u+i]，dg[i]代表不同斜率的反斜线
+下标 x+y
+和 n−x+y
+表示的是截距
+
+y=kx+b
+
+当同一斜率时dg【num】，num是相同的。
+
+21、在图上至少需要移动多少次。（bfs）
+1. 创建一个queue
+2. q.push(&#123;0，0&#125;)摁进初始状态
+3. 遍历队列（while队列不为空）
+4. 将队列第一个值取出来复制 t=q.front()
+5. 将第一个值丢掉 q.pop()
+6. for循环四个方向
+7. 定义新的坐标变量，int xx=t.first+dx[i]
+8. if(xx&gt;=0&amp;&amp;xx&lt;边界&amp;&amp;yy&gt;=0&amp;&amp;yy&lt;边界&amp;&amp;当前路没走过&amp;&amp;当前距离为空)
+9. 距离在d[t.first][t.second]基础上加1
+10. 将这个点推进队列
+</code></pre>
+<p>int bfs(){<br>    queue<PII>q;<br>    q.push({0,0});<br>    while (!q.empty()) {<br>        auto t&#x3D;q.front();<br>        q.pop();<br>        for(int i&#x3D;0;i&lt;4;i++){<br>            int x&#x3D;t.first+dx[i];<br>            int y&#x3D;t.second+dy[i];<br>            if(x&gt;&#x3D;0&amp;&amp;x&lt;n&amp;&amp;y&gt;&#x3D;0&amp;&amp;y&lt;m&amp;&amp;g[x][y]&#x3D;&#x3D;0&amp;&amp;d[x][y]&#x3D;&#x3D;0){<br>                d[x][y]&#x3D;d[t.first][t.second]+1;<br>                q.push({x,y});<br>            }<br>        }<br>    }<br>    return d[n-1][m-1];<br>}</p>
+<pre><code>
+22、二维有顺序矩阵的移动（降维）
+![](https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220408232353.png)
+将内容转换为一维字符串
+然后再进行正常的bfs
+queue&lt;string&gt;q;
+距离用unordered_map&lt;string ,int&gt;dist;
+!d.count(t),如果找不到t对象，t没有被遍历过
+
+23、无边数限制求最短路（Dijkstra）
+1. 初始化头指针为-1
+2. 建立邻接表
+3. 初始化dist为无穷大
+4. 设置初始距离，序号1的点为0
+5. 定义优先队列 priority_queue&lt;PII,vector&lt;PII&gt;,greater&lt;PII&gt; &gt;heap;
+6. 将初始点推进。heap.push（&#123;0,1&#125;）
+7. 遍历队列（while队列不为空）
+8. 将第一个值取出，t=heap.top(),ver=t.second(),distance=t.first
+9. 出列第一个值
+10. 如果这个值被遍历过就continue
+11. 否则那就标记
+12. 循环这个序号 for（int i=h[ver],i!=-1;i=ne[i]）int j=e[i];
+13. 如果j到1的距离大于点到t的距离加上w[i]
+14. 更新dist[j],并将该点推进队列。
+</code></pre>
+<p>void add(int x, int y, int c)<br>{<br>    w[idx] &#x3D; c; &#x2F;&#x2F; 有重边也不要紧，假设1-&gt;2有权重为2和3的边，再遍历到点1的时候2号点的距离会更新两次放入堆中<br>    e[idx] &#x3D; y; &#x2F;&#x2F; 这样堆中会有很多冗余的点，但是在弹出的时候还是会弹出最小值2+x（x为之前确定的最短路径），并<br>    ne[idx] &#x3D; h[x]; &#x2F;&#x2F; 标记st为true，所以下一次弹出3+x会continue不会向下执行。<br>    h[x] &#x3D; idx++;<br>}</p>
+<p>int dijkstra()<br>{<br>    memset(dist, 0x3f, sizeof(dist));<br>    dist[1] &#x3D; 0;<br>    priority_queue&lt;PII, vector<PII>, greater<PII>&gt; heap; &#x2F;&#x2F; 定义一个小根堆<br>    &#x2F;&#x2F; 这里heap中为什么要存pair呢，首先小根堆是根据距离来排的，所以有一个变量要是距离，其次在从堆中拿出来的时<br>    &#x2F;&#x2F; 候要知道知道这个点是哪个点，不然怎么更新邻接点呢？所以第二个变量要存点。<br>    heap.push({ 0, 1 }); &#x2F;&#x2F; 这个顺序不能倒，pair排序时是先根据first，再根据second，这里显然要根据距离排序<br>    while(heap.size())<br>    {<br>        PII k &#x3D; heap.top(); &#x2F;&#x2F; 取不在集合S中距离最短的点<br>        heap.pop();<br>        int ver &#x3D; k.second, distance &#x3D; k.first;</p>
+<pre><code>    if(st[ver]) continue;
+    st[ver] = true;
+
+    for(int i = h[ver]; i != -1; i = ne[i])
+    &#123;
+        int j = e[i]; // i只是个下标，e中在存的是i这个下标对应的点。
+        if(dist[j] &gt; distance + w[i])
+        &#123;
+            dist[j] = distance + w[i];
+            heap.push(&#123; dist[j], j &#125;);
+        &#125;
+    &#125;
+&#125;
+if(dist[n] == 0x3f3f3f3f) return -1;
+else return dist[n];
+</code></pre>
+<p>}</p>
+<pre><code>
+24、任意点对任意点的最短路 弗洛伊德 
+
+    注意：用稠密图储存时，g[i][j]=min(g[i][j],w[i]),避免重边和自环
+
+1. 将i=j的点赋值为0，自己跟自己的距离是0
+2. 存图
+3. 开始遍历，一个k作为中间站，一个i和一个j作为起点和终点，一直更新d[i][j]=min(d[i][j],d[i][k]+d[k][j]);
+
+25、稠密图求最小生成树（prim）
+和狄杰斯特拉算法类似，每次取点需要将边权相加
+</code></pre>
+<p>int Prim()<br>{<br>    memset(vis, false, sizeof vis);<br>    int sum &#x3D; 0, cnt &#x3D; 0;<br>    priority_queue&lt;PII, vector<PII>, greater<PII>&gt; q;<br>    q.push({0, 1});</p>
+<pre><code>while (!q.empty())
+&#123;
+    auto t = q.top();
+    q.pop();
+    int ver = t.second, dst = t.first;
+    if (vis[ver]) continue;
+    vis[ver] = true, sum += dst, ++cnt;
+
+    for (int i = h[ver]; i != -1; i = ne[i])
+    &#123;
+        int j = e[i];
+        if (!vis[j]) &#123;
+            q.push(&#123;w[i], j&#125;);
+        &#125;
+    &#125;
+&#125;
+
+if (cnt != n) return INF;
+return sum;
+</code></pre>
+<p>}</p>
+<pre><code>
+26、有 N件物品和一个容量为V的背包，每件物品有各自的价值且只能被选择一次，要求在有限的背包容量下，装入的物品总价值最大。（01背包）
+</code></pre>
+<pre><code>for(int i = 1; i &lt;= n; i++) 
+    for(int j = 1; j &lt;= m; j++)
+    &#123;
+        //  当前背包容量装不进第i个物品，则价值等于前i-1个物品
+        if(j &lt; v[i]) 
+            f[i][j] = f[i - 1][j];
+        // 能装，需进行决策是否选择第i个物品
+        else    
+            f[i][j] = max(f[i - 1][j], f[i - 1][j - v[i]] + w[i]);
+    &#125;           
+</code></pre>
+<pre><code>
+27、有 N种物品和一个容量是 V的背包，每种物品都有无限件可用，要求在有限的背包容量下，装入的物品总价值最大。（完全背包）
+
+    暴力：
+        for(int i = 1 ; i&lt;=n ;i++)
+        for(int j = 0 ; j&lt;=m ;j++)
+        &#123;
+            for(int k = 0 ; k*v[i]&lt;=j ; k++)
+            f[i][j] = max(f[i][j],f[i-1][j-k*v[i]]+k*w[i]);
+        &#125;
+![](https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220409003938.png)
+    
+    for(int i = 1 ; i &lt;=n ;i++)
+    for(int j = 0 ; j &lt;=m ;j++)
+    &#123;
+        f[i][j] = f[i-1][j];
+        if(j-v[i]&gt;=0)
+        f[i][j]=max(f[i][j],f[i][j-v[i]]+w[i]);
+    &#125;
+    
+28、有 N种物品和一个容量是 V的背包。
+第 i种物品最多有 si件，每件体积是 vi
+，价值是 wi。求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。
+</code></pre>
+<p>1、死拆<br>    while(n–)<br>    {<br>        cin&gt;&gt;v&gt;&gt;w&gt;&gt;s;<br>        while(s–)<br>        {<br>            a[++t]&#x3D;v;<br>            b[t]&#x3D;w;<br>        }&#x2F;&#x2F;把多重背包拆成01背包<br>    }<br>    for(int i&#x3D;1;i&lt;&#x3D;t;i++)<br>    for(int j&#x3D;m;j&gt;&#x3D;a[i];j–)<br>    dp[j]&#x3D;max(dp[j-a[i]]+b[i],dp[j]);&#x2F;&#x2F;直接套01背包的板子</p>
+<pre><code>2、暴力，枚举这个物品拿0个，1个，2个...
+    for(int i=1;i&lt;=n;i++)&#123;
+    for(int j=0;j&lt;=m;j++)
+        for(int k=0;k&lt;=s[i]&amp;&amp;k*v[i]&lt;=j;k++)
+            f[i][j]=max(f[i][j],f[i-1][j-v[i]*k]+w[i]*k);
+</code></pre>
+<pre><code>![](https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220409005031.png)
+
+然而，当数据较大时（一俩千），需要用二进制优化
+优化如下，每种物品最多有si件，可以凑成1件、2件，4件，8件...
+</code></pre>
+<p>  int cnt &#x3D; 0; &#x2F;&#x2F;分组的组别<br>    for(int i &#x3D; 1;i &lt;&#x3D; n;i ++)<br>    {<br>        int a,b,s;<br>        cin &gt;&gt; a &gt;&gt; b &gt;&gt; s;<br>        int k &#x3D; 1; &#x2F;&#x2F; 组别里面的个数<br>        while(k&lt;&#x3D;s)<br>        {<br>            cnt ++ ; &#x2F;&#x2F;组别先增加<br>            v[cnt] &#x3D; a * k ; &#x2F;&#x2F;整体体积<br>            w[cnt] &#x3D; b * k; &#x2F;&#x2F; 整体价值<br>            s -&#x3D; k; &#x2F;&#x2F; s要减小<br>            k <em>&#x3D; 2; &#x2F;&#x2F; 组别里的个数增加<br>        }<br>        &#x2F;&#x2F;剩余的一组<br>        if(s&gt;0)<br>        {<br>            cnt ++ ;<br>            v[cnt] &#x3D; a</em>s;<br>            w[cnt] &#x3D; b*s;<br>        }<br>    }</p>
+<pre><code>n = cnt ; //枚举次数正式由个数变成组别数
+</code></pre>
+<p>下面套01背包即可</p>
+<pre><code>
+29、有 N组物品和一个容量是 V的背包。每组物品有若干个，同一组内的物品最多只能选一个。求解将哪些物品装入背包，可使物品总体积不超过背包容量，且总价值最大。(分组背包)
+</code></pre>
+<pre><code>for(int i=1;i&lt;=n;i++)&#123;
+    for(int j=0;j&lt;=m;j++)&#123;
+        f[i][j]=f[i-1][j];
+        for(int k=0;k&lt;s[i];k++)
+            if(j&gt;=v[i][k])f[i][j]=max(f[i][j],f[i-1][j-v[i][k]]+w[i][k]);
+    &#125;
+    每组内挨个更新f[i][j]
+</code></pre>
+<pre><code>
+30、从顶部出发，在每一结点可以选择移动至其左下方的结点或移动至其右下方的结点，一直走到底层，要求找出一条路径，使路径上的数字的和最大。
+
+    找某个路径即可想到bfs，但是求最大值，就想到dp
+    对于数字三角型，可以考虑从底向上，可以避免边界问题
+        for(int i=n;i&gt;=1;i--)&#123;
+        for(int j=i;j&gt;=1;j--)
+        f[i][j]=max(f[i+1][j],f[i+1][j+1])+f[i][j];
+    &#125;
+
+31、给定一个长度为 N的数列，求数值严格单调递增的子序列的长度最长是多少。
+
+    又是求一个最值，考虑dp
+
+![](https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220409005953.png)
+</code></pre>
+<pre><code>int mx = 1;    // 找出所计算的f[i]之中的最大值，边算边找
+for (int i = 0; i &lt; n; i++) &#123;
+    f[i] = 1;    // 设f[i]默认为1，找不到前面数字小于自己的时候就为1
+    for (int j = 0; j &lt; i; j++) &#123;
+        if (w[i] &gt; w[j]) f[i] = max(f[i], f[j] + 1);    // 前一个小于自己的数结尾的最大上升子序列加上自己，即+1
+    &#125;
+    mx = max(mx, f[i]);
+&#125;
+</code></pre>
+<p>栈优化后<br>    t.push_back(w[0]);<br>    for(int i&#x3D;1;i&lt;n;i++)<br>    {<br>        if(w[i]&gt;t.back())t.push_back(w[i]);<br>        else {<br>            int index&#x3D;lower_bound(t.begin(),t.end(),w[i])-t.begin();<br>            t[index]&#x3D;w[i];<br>        }<br>    }</p>
+<pre><code>
+32、给定两个长度分别为 N和 M的字符串 A和 B
+，求既是 A的子序列又是 B的子序列的字符串长度最长是多少。（最长公共子序列）
+
+        for(int i=1;i&lt;=n;i++)
+        for(int j=1;j&lt;=m;j++)
+    &#123;
+        if(a[i]==b[j])f[i][j]=f[i-1][j-1]+1;
+        else f[i][j]=max(f[i-1][j],f[i][j-1]);
+    &#125;
+    
+33、给定两个字符串 A和 B，现在要将A经过若干操作变为B。将A变为B至少需要进行多少次操作。
+</code></pre>
+<pre><code>for(int i=0;i&lt;=n;i++)f[i][0]=i;
+for(int i=0;i&lt;=m;i++)f[0][i]=i;
+for(int i=1;i&lt;=n;i++)&#123;
+    for(int j=1;j&lt;=m;j++)&#123;
+        f[i][j]=min(f[i-1][j],f[i][j-1])+1;
+        if(a[i]==b[j])f[i][j]=min(f[i][j],f[i-1][j-1]);
+        else f[i][j]=min(f[i][j],f[i-1][j-1]+1);
+    &#125;
+&#125;
+</code></pre>
+<pre><code>
+34、每堆石子有一定的质量，可以用一个整数来描述，现在要将这 N堆石子合并成为一堆。每次只能合并相邻的两堆，合并的代价为这两堆石子的质量之和，合并后与这两堆石子相邻的石子将和新堆相邻，合并时由于选择的顺序不同，合并的总代价也不相同。
+</code></pre>
+<pre><code>for(int len =1;len&lt;n;len++)
+    for(int i =1;i+len &lt;= n;i++)
+&#123;
+    int j=i+len;
+    f[i][j]=0x3f3f3f3f;
+    for(int k=i;k&lt;=j-1;k++)
+    &#123;
+        f[i][j]=min(f[i][j],f[i][k]+f[k+1][j]+s[j]-s[i-1]);
+    &#125;
+&#125;
+</code></pre>
+<pre><code>
+35、他们的关系就像一棵以校长为根的树，父节点就是子节点的直接上司。现在要召开一场周年庆宴会，不过，没有职员愿意和直接上司一起参会。
+在满足这个条件的前提下，主办方希望邀请一部分职员参会，使得所有参会职员的快乐指数总和最大，求这个最大值。
+
+    将子节点的编号存到son容器中
+        for(int i=1;i&lt;=n-1;i++)&#123;
+        int l,k;
+        cin&gt;&gt;l&gt;&gt;k;
+        son[k].push_back(l);
+        v[l]=1;
+    &#125;
+        寻找根节点（度为0）    
+            for(int i=1;i&lt;=n;i++)&#123;
+        if(v[i]==0)root=i;
+    &#125;
+    遍历根节点
+    分俩种情况，在遍历子节点
+    void dfs(int x)&#123;
+    f[x][0]=0;
+    f[x][1]=h[x];
+    for(int i=0;i&lt;son[x].size();i++)&#123;
+        int y=son[x][i];
+        dfs(y);
+        f[x][0]+=max(f[y][1],f[y][0]);
+        f[x][1]+=f[y][0];
+    &#125;
+&#125;
+
+36、记忆化搜索
+</code></pre>
+<p>重点是，当该点已经被搜过时，直接返回值<br>    int dp(int x,int y){<br>    int &amp;v &#x3D; f[x][y]; &#x2F;&#x2F;Y总说的小技巧，等于把f[x][y]简化成了v，如果v发生变化，f[x][y]也会随之变化<br>    if(v !&#x3D; -1) return v; &#x2F;&#x2F;如果已经计算过了，就可以直接返回答案<br>    v &#x3D; 1; &#x2F;&#x2F;注意v要先赋值为1哦~<br>    for(int i &#x3D; 0;i &lt; 4;i ++){ &#x2F;&#x2F;四个方向<br>        int xx &#x3D; x + dx[i];<br>        int yy &#x3D; y + dy[i];<br>        if(xx &gt;&#x3D; 1 &amp;&amp; xx &lt;&#x3D; n &amp;&amp; yy &gt;&#x3D; 1 &amp;&amp; yy &lt;&#x3D; m &amp;&amp; h[x][y] &gt; h[xx][yy]){ &#x2F;&#x2F;判断这点是否能走<br>            v &#x3D; max(v,dp(xx,yy) + 1); &#x2F;&#x2F;更新<br>        }<br>    }<br>    return v; &#x2F;&#x2F;别忘了返回v啊（被坑了<br>}</p>
+<pre><code>
+37、区间选择
+
+    排序左端点或者右端点
+
+请你在数轴上选择尽量少的点，使得每个区间内至少包含一个选出的点。
+
+输出选择的点的最小数量。
+
+        for(int i=0;i&lt;n;i++)&#123;
+        ans++;
+        int right=a[i].first;
+        while(right&gt;=a[i+1].second&amp;&amp;i+1&lt;n)i++;
+    &#125;
+    
+请你在数轴上选择若干区间，使得选中的区间之间互不相交（包括端点）。
+
+输出可选取区间的最大数量。
+
+        for(int i=0;i&lt;n;i++)&#123;
+        int Maxr=a[i].second;
+        ans++;
+        while(Maxr&gt;=a[i+1].first&amp;&amp;i+1&lt;n)Maxr=min(Maxr,a[i+1].second),i++;
+    &#125;
+请你将这些区间分成若干组，使得每组内部的区间两两之间（包括端点）没有交集，并使得组数尽可能小
+
+    
+    类似于有N个班要去教室上课，需要多少教室
+            a[idx].second=0;//左端点负值未0
+        a[idx+1].second=1;//右端点赋值为1
+        idx=idx+2;
+        遇到上课的班级教室加1
+        遇到下课的班级教室减1
+        求教室的峰值
+            for(int i=0;i&lt;idx;i++)&#123;
+        if(a[i].second==0)ans++;
+        maxx=max(ans,maxx);
+        if(a[i].second==1)ans--;
+    &#125;
+    
+37、区间合并
+假定每个果子重量都为 1，并且已知果子的种类数和每种果子的数目，你的任务是设计出合并的次序方案，使达达耗费的体力最少，并输出这个最小的体力耗费值。（哈夫曼树）
+
+    先用优先队列储存
+        priority_queue&lt;int ,vector&lt;int&gt;,greater&lt;int&gt; &gt; heap;
+    while(n--)&#123;
+        int x;
+        scanf(&quot;%d&quot;,&amp;x);
+        heap.push(x);
+    &#125;
+    
+    每次将前俩取出来相加再推进去
+        while(heap.size()&gt;1)&#123;
+        int a=heap.top();
+        heap.pop();
+        int b=heap.top();
+        heap.pop();
+        res+=a+b;
+        heap.push(a+b);
+    &#125;
+    
+
+38、现在需要在数轴上建立一家货仓，每天清晨，从货仓到每家商店都要运送一车商品。为了提高效率，求把货仓建在何处，可以使得货仓到每家商店的距离之和最小
+    
+        数组的中位数即可：nth_element(a,a+(n&gt;&gt;1),a+n);
+        
+39、从 1∼n这 n个整数中随机选取任意多个，输出所有可能的选择方案
+
+    枚举一个坑时，俩个坑时...
+    
+40、输出输入数字用数码 1∼9不重复不遗漏地组成带分数表示的全部种数。
+</code></pre>
+<p>将10个数分三段<br>没段取成a,b,c;<br>    for(int i&#x3D;0;i&lt;9;i++)<br>        num[i]&#x3D;i+1;<br>    do{<br>        for(int i&#x3D;0;i&lt;&#x3D;6;i++)<br>            for(int j&#x3D;((9-i)&#x2F;2)+i-1;j&lt;&#x3D;7;j++)<br>        {<br>            int a&#x3D;fun(0,i);<br>            int b&#x3D;fun(i+1,j);<br>            int c&#x3D;fun(j+1,8);<br>            if(a<em>c+b&#x3D;&#x3D;n</em>c){<br>                cnt++;<br>            }<br>        }<br>    }while (next_permutation(num, num+9));</p>
+<pre><code>41、直接输出结果的很有可能是二分答案
+二分一定要开long long
+</code></pre>
+<p>要么while（r-l&gt;0）,选择的时候就mid+1<br>    while (l &lt; r)<br>    {<br>        int mid &#x3D; l + r &gt;&gt; 1;<br>        if (success(mid))<br>        {<br>            r &#x3D; mid;<br>        }<br>        else<br>        {<br>            l &#x3D; mid + 1;<br>        }<br>    } </p>
+<pre><code>或者while（r-l&gt;1）
+选择的时候直接mid
+    while (l + 1 &lt; r) &#123;
+    int mid = (l + r) &gt;&gt; 1;
+
+    if (check(mid)) r = mid;
+    else l = mid;
+&#125;
+</code></pre>
+<p>&#96;&#96;&#96;</p>
+<p>42、在 1∼N的某个排列中有多少个连号区间<br>比如2 5 6 3 4<br>第二位到第五位的最大值为6，最小值为3，6-3是不是中间隔的数字</p>
+<p>43、小明对数位中含有 2、0、1、9的数字很感兴趣（不包括前导 0<br>），在 1到 40中这样的数包括 1、2、9、10至 32、39和 40，共 28个，他们的和是 574。请问，在 1到 n中，所有这样的数的和是多少？</p>
+<p>打表yyds</p>
+<p>44、涉及到日期，考虑闰年的2月（能同时被4和100整除，或者能被400整除）<br>if(month&#x3D;&#x3D;2)<br>{bool leap &#x3D; year % 4 &#x3D;&#x3D; 0 &amp;&amp; year % 100|| year % 400&#x3D;&#x3D;0;&#x2F;&#x2F;判断是不是闰年，看到日期类的题一定要注意2月这个毒瘤</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>JavaWeb实验二操作笔记</title>
+    <url>/2022/03/20/JavaWeb%E5%AE%9E%E9%AA%8C%E4%BA%8C%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="JavaWeb实验二操作笔记"><a href="#JavaWeb实验二操作笔记" class="headerlink" title="JavaWeb实验二操作笔记"></a>JavaWeb实验二操作笔记</h1><pre><code>writer：宋丁沣
+</code></pre>
+<h3 id="1、创建一个动态web应用"><a href="#1、创建一个动态web应用" class="headerlink" title="1、创建一个动态web应用"></a>1、创建一个动态web应用</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192712.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192720.png"></p>
+<h3 id="2、将两个html文件集成到webContent目录下"><a href="#2、将两个html文件集成到webContent目录下" class="headerlink" title="2、将两个html文件集成到webContent目录下"></a>2、将两个html文件集成到webContent目录下</h3><pre><code>注意将html文件名改为jsp，同时将代码中的html改为jsp
+</code></pre>
+<h3 id="3、创建一个Emp实体Bean"><a href="#3、创建一个Emp实体Bean" class="headerlink" title="3、创建一个Emp实体Bean"></a>3、创建一个Emp实体Bean</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192731.png"></p>
+<p>先定义好参数     </p>
+<pre><code>package edu.hue.jk.db;
+import java.sql.*;
+public class Emp &#123;
+private int empno;
+private String ename;
+private Date hiredate;
+&#125;
+</code></pre>
+<p>  再将方法定义出来<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192814.png"></p>
+<h3 id="4、在两个jsp文件中引入Emp，用以替换之前的静态代码"><a href="#4、在两个jsp文件中引入Emp，用以替换之前的静态代码" class="headerlink" title="4、在两个jsp文件中引入Emp，用以替换之前的静态代码"></a>4、在两个jsp文件中引入Emp，用以替换之前的静态代码</h3><pre><code>&lt;%@ page import=&quot;java.sql.Date&quot; %&gt;
+&lt;%@ page import=&quot;edu.hue.jk.db.Emp&quot; %&gt;
+----------------------------------------
+&lt;%
+Emp e1 = new Emp();//定义一个对象
+e1.setEmpno(1);//设置该对象的学号
+e1.setEname(&quot;Tom&quot;);//设置该对象的姓名
+e1.setHiredate(Date.valueOf(&quot;2018-09-01&quot;));//设置该对象的信息，注意：valueOf中的O要大写
+%&gt;
+-----------------------------------------
+&lt;td&gt;&lt;%=e1.getEmpno() %&gt;&lt;/td&gt;
+&lt;td&gt;&lt;%=e1.getEname() %&gt;&lt;/td&gt;
+&lt;td&gt;&lt;%=e1.getHiredate() %&gt;&lt;/td&gt;
+//获取值
+</code></pre>
+<h3 id="实验2完成"><a href="#实验2完成" class="headerlink" title="实验2完成"></a>实验2完成</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192826.png"></p>
+<p>emp_list_jsp 完整代码</p>
+<pre><code>&lt;%@ page import=&quot;java.sql.Date&quot; %&gt;
+&lt;%@ page import=&quot;edu.hue.jk.db.Emp&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%
+Emp e1 = new Emp();
+e1.setEmpno(1);
+e1.setEname(&quot;Tom&quot;);
+e1.setHiredate(Date.valueOf(&quot;2018-09-01&quot;));
+Emp e2 = new Emp();
+e2.setEmpno(2);
+e2.setEname(&quot;Timo&quot;);
+e2.setHiredate(Date.valueOf(&quot;2019-08-02&quot;));
+%&gt;
+&lt;table border=&quot;1&quot; width=&quot;80%&quot; align=&quot;center&quot;    height=&quot;100&quot;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                empno
+            &lt;/td&gt;
+            &lt;td&gt;
+                ename
+            &lt;/td&gt;
+            &lt;td&gt;
+                hiredate
+            &lt;/td&gt;
+            &lt;td&gt;
+                operation
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+    &lt;td&gt;&lt;%=e1.getEmpno() %&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;%=e1.getEname() %&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;%=e1.getHiredate() %&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a href=&quot;emp_edit.jsp&quot;&gt;edit&lt;/a&gt;
+                &lt;a href=&quot;delete&quot;&gt;del&lt;/a&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+    &lt;td&gt;&lt;%=e2.getEmpno() %&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;%=e2.getEname() %&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;%=e2.getHiredate() %&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a href=&quot;emp_edit.jsp&quot;&gt;edit&lt;/a&gt;
+                &lt;a href=&quot;delete&quot;&gt;del&lt;/a&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;a href=&quot;insert&quot;&gt;add&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>SQL语言</title>
+    <url>/2022/03/19/SQL%E8%AF%AD%E8%A8%80/</url>
+    <content><![CDATA[<h1 id="SQL语言"><a href="#SQL语言" class="headerlink" title="SQL语言"></a>SQL语言</h1><h2 id="1、模式定义"><a href="#1、模式定义" class="headerlink" title="1、模式定义"></a>1、模式定义</h2><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193540.png"><br>例题：</p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193549.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193609.png"></p>
+<h2 id="2、模式删除"><a href="#2、模式删除" class="headerlink" title="2、模式删除"></a>2、模式删除</h2><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193620.png"><br>注：<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193627.png"></p>
+<h2 id="3、表的定义与删除"><a href="#3、表的定义与删除" class="headerlink" title="3、表的定义与删除"></a>3、表的定义与删除</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404212606.png"></p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193650.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193701.png"><br>注：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193713.png"></p>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193723.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193732.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193738.png"></p>
+<h2 id="4、索引的建立与删除"><a href="#4、索引的建立与删除" class="headerlink" title="4、索引的建立与删除"></a>4、索引的建立与删除</h2><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193754.png"></p>
+<h3 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193801.png"><br>注：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193820.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193831.png"></p>
+<h3 id="修改-1"><a href="#修改-1" class="headerlink" title="修改"></a>修改</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193836.png"></p>
+<h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193842.png"></p>
+<h2 id="5、查询"><a href="#5、查询" class="headerlink" title="5、查询"></a>5、查询</h2><h3 id="查询所有列-amp-查询部分列"><a href="#查询所有列-amp-查询部分列" class="headerlink" title="查询所有列&amp;查询部分列"></a>查询所有列&amp;查询部分列</h3><p>例题：</p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193944.png"></p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193953.png"></p>
+<h3 id="结果去重"><a href="#结果去重" class="headerlink" title="结果去重"></a>结果去重</h3><pre><code>加上distinct关键词就好了
+放在需要去重打字段的前面
+</code></pre>
+<h3 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404212549.png"></p>
+<pre><code>只要不是空都会算一个，相同的也会算一个
+</code></pre>
+<h3 id="分组查询（group-by，如果要进行筛选，就用having-x3D-where-条件）"><a href="#分组查询（group-by，如果要进行筛选，就用having-x3D-where-条件）" class="headerlink" title="分组查询（group by，如果要进行筛选，就用having&#x3D;where-条件）"></a>分组查询（group by，如果要进行筛选，就用having&#x3D;where-条件）</h3><h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><h4 id="等值连接（自身连接）"><a href="#等值连接（自身连接）" class="headerlink" title="等值连接（自身连接）"></a>等值连接（自身连接）</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194013.png">    </p>
+<pre><code>两个表的笛卡尔积附加一个等值的条件，就用这个条件合在了一起
+</code></pre>
+<h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><h4 id="左连接"><a href="#左连接" class="headerlink" title="左连接"></a>左连接</h4><pre><code>left outer join
+就是把左边这个表和右边那个表根据一个条件连接起来，最后再加上左表剩余的部分
+注：剩余的值虽然保留在结果中，但是会加null
+</code></pre>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194020.png"></p>
+<h3 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h3><pre><code>select 字段（*） from 哪个表 where 该条件存在于 in （一个查询）范围内的数据
+</code></pre>
+<h4 id="带有any-all的子查询"><a href="#带有any-all的子查询" class="headerlink" title="带有any all的子查询"></a>带有any all的子查询</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194027.png"></p>
+<pre><code>找出大于后面范围的所有数据
+</code></pre>
+<h4 id="exists"><a href="#exists" class="headerlink" title="exists"></a>exists</h4><p>例题：</p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194035.png"></p>
+<h3 id="集合查询"><a href="#集合查询" class="headerlink" title="集合查询"></a>集合查询</h3><p>并（union）</p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194125.png"></p>
+<p>交（intersect）<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194134.png"></p>
+<p>差（except）<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194143.png"></p>
+<h2 id="6、数据的插入、修改、删除"><a href="#6、数据的插入、修改、删除" class="headerlink" title="6、数据的插入、修改、删除"></a>6、数据的插入、修改、删除</h2><h4 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194150.png"></p>
+<h4 id="修改-2"><a href="#修改-2" class="headerlink" title="修改"></a>修改</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194203.png"></p>
+<h4 id="删除-2"><a href="#删除-2" class="headerlink" title="删除"></a>删除</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194214.png"></p>
+<h2 id="7、视图"><a href="#7、视图" class="headerlink" title="7、视图"></a>7、视图</h2><h3 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194221.png"></p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194225.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194232.png"></p>
+<h3 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194249.png"></p>
+<h3 id="查询视图"><a href="#查询视图" class="headerlink" title="查询视图"></a>查询视图</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194259.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>二分查找与二分答案</title>
+    <url>/2022/04/06/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<h2 id="二分查找与二分答案"><a href="#二分查找与二分答案" class="headerlink" title="二分查找与二分答案"></a>二分查找与二分答案</h2><pre><code>二分查找：
+int k=lower_bound(a,a+n, l)-a;
+第一个大于或者等于
+如果不存在则判断a【k】是否等于该值
+二分答案：
+
+while (r - l &gt; 1e-8) &#123;
+    // 步骤 A: 找中间值
+    double mid = (l + r) / 2;
+    // 步骤 B: 判断
+    if (mid * mid * mid &lt; x) l = mid;
+    else r = mid;
+&#125;
+</code></pre>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406191657.png"></p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406191710.png"></p>
+<pre><code>#include&lt;iostream&gt;
+
+using namespace std;
+const int N=100005;
+int n,q,x,a[N];
+int main()&#123;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;q);
+    for(int i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
+    while(q--)&#123;
+        scanf(&quot;%d&quot;,&amp;x);
+        int l=0,r=n-1;
+        while(l&lt;r)&#123;//找到第一个x
+            int mid =(l+r)&gt;&gt;1;
+            if(a[mid]&lt;x)l=mid+1;
+            else r=mid;
+        &#125;
+        if(a[l]!=x)&#123;
+            printf(&quot;-1 -1\n&quot;);
+            continue;
+        &#125;
+        int l1=l,r1=n;
+        while(l1+1&lt;r1)&#123;//找最后一个x
+            int mid = (l1+r1)&gt;&gt;1;
+            if(a[mid]&lt;=x)l1=mid;
+            else r1=mid;
+        &#125;
+        cout&lt;&lt;l&lt;&lt;&quot; &quot;&lt;&lt;l1&lt;&lt;endl;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<p>&amp;&amp; </p>
+<pre><code>#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+int main()&#123;
+    int i,j,n,m,a[100001],l;
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=0;i&lt;n;i++)
+        cin&gt;&gt;a[i];
+    for(int j=0;j&lt;m;j++)
+    &#123;
+        cin&gt;&gt;l;
+        int k=lower_bound(a,a+n, l)-a;
+        if(k==n||a[k]!=l)&#123;cout&lt;&lt;-1&lt;&lt;&quot; &quot;&lt;&lt;-1&lt;&lt;endl;&#125;
+        else 
+        &#123;
+            int h=upper_bound(a,a+n,l)-a-1;
+            cout&lt;&lt;k&lt;&lt;&quot; &quot;&lt;&lt;h&lt;&lt;endl;
+        &#125;
+        
+    &#125;
+    return 0;
+    
+&#125;
+</code></pre>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406191830.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406191921.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406192003.png"></p>
+<p>lower_bound( )和upper_bound( )都是利用二分查找的方法在一个排好序的数组中进行查找的。</p>
+<p>lower_bound( begin,end,num)：从数组的begin位置到end-1位置二分查找第一个 大于或等于 num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。</p>
+<p>upper_bound( begin,end,num)：从数组的begin位置到end-1位置二分查找第一个大于num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。</p>
+<p>在从大到小的排序数组中，重载lower_bound()和upper_bound()</p>
+<p>lower_bound( begin,end,num,greater<type>() ):从数组的begin位置到end-1位置二分查找第一个小于或等于num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。</p>
+<p>upper_bound( begin,end,num,greater<type>() ):从数组的begin位置到end-1位置二分查找第一个小于num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。‘</p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406194230.png"></p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+using namespace std;
+double x;
+int main() &#123;
+    cin &gt;&gt; x;
+    // 确定边界值
+    double l = -100000, r = 100000;
+    // 注意循环条件处理精度问题
+    while (r - l &gt; 1e-8) &#123;
+        // 步骤 A: 找中间值
+        double mid = (l + r) / 2;
+        // 步骤 B: 判断
+        if (mid * mid * mid &lt; x) l = mid;
+        else r = mid;
+    &#125;
+    printf(&quot;%.6f&quot;, r);
+    return 0;
+&#125;
+
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
     <title>前缀和/差</title>
-    <url>/2022/04/06/----1/</url>
+    <url>/2022/04/06/%E5%89%8D%E7%BC%80%E5%92%8C:%E5%B7%AE/</url>
     <content><![CDATA[<h1 id="前缀和-x2F-差"><a href="#前缀和-x2F-差" class="headerlink" title="前缀和&#x2F;差"></a>前缀和&#x2F;差</h1><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406201323.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406201337.png"></p>
 <pre><code>#include&lt;iostream&gt;
 using namespace std;
@@ -113,8 +1121,46 @@ int main()&#123;
 ]]></content>
   </entry>
   <entry>
+    <title>区间分组</title>
+    <url>/2022/04/04/%E5%8C%BA%E9%97%B4%E5%88%86%E7%BB%84/</url>
+    <content><![CDATA[<h1 id="区间分组"><a href="#区间分组" class="headerlink" title="区间分组"></a>区间分组</h1><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407111842.png"><br>思考：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407111855.png"></p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include&lt;queue&gt;
+using namespace std;
+
+const int N=100005;
+typedef pair&lt;int ,int &gt;PII;
+PII a[2*N];
+int x,y,idx,ans;
+
+int main() &#123;
+   int n;
+   cin&gt;&gt;n;
+   for(int i=0;i&lt;n;i++)&#123;
+      cin&gt;&gt;(a[idx].first)&gt;&gt;(a[idx+1].first);
+      a[idx].second=0;//左端点负值未0
+      a[idx+1].second=1;//右端点赋值为1
+      idx=idx+2;
+   &#125;
+   sort(a, a+idx);
+   int maxx=-1;
+   int ans=0;
+   for(int i=0;i&lt;idx;i++)&#123;
+      if(a[i].second==0)ans++;
+      maxx=max(ans,maxx);
+      if(a[i].second==1)ans--;
+   &#125;
+   cout&lt;&lt;maxx&lt;&lt;endl;
+
+   return 0;
+&#125;
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
     <title>归并排序</title>
-    <url>/2022/04/05/----3/</url>
+    <url>/2022/04/05/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><pre><code>    看到输出结果，一定要记得把结果加上longlong！！！！
 </code></pre>
 <p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407111606.png"><br>解：</p>
@@ -206,8 +1252,35 @@ int main() &#123;
 ]]></content>
   </entry>
   <entry>
+    <title>双指针算法</title>
+    <url>/2022/04/07/%E5%8F%8C%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<h2 id="双指针算法"><a href="#双指针算法" class="headerlink" title="双指针算法"></a>双指针算法</h2><p> <img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407110349.png"><br> 解：</p>
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+int n,a[100005],k,ans,q[100005],l;
+int main()&#123;
+   cin&gt;&gt;n;
+   for(int i=0;i&lt;n;i++)&#123;
+       cin&gt;&gt;a[i];
+   &#125;
+   for(int i=0,j=0;i&lt;n;i++)&#123;
+       q[a[i]]++;
+       while(q[a[i]]&gt;1&amp;&amp;j&lt;=i)&#123;
+           q[a[j]]--;
+           j++;
+       &#125;
+       ans=max(ans,i-j+1);
+   &#125;
+   cout&lt;&lt;ans;
+   return 0;
+&#125;
+</code></pre>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407110453.png"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>快速排序</title>
-    <url>/2022/04/05/----4/</url>
+    <url>/2022/04/05/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220405193617.png"></p>
 <p>解：</p>
 <pre><code>#include&lt;iostream&gt;
@@ -317,406 +1390,6 @@ int main()&#123;
 ]]></content>
   </entry>
   <entry>
-    <title>二分查找与二分答案</title>
-    <url>/2022/04/06/----2/</url>
-    <content><![CDATA[<h2 id="二分查找与二分答案"><a href="#二分查找与二分答案" class="headerlink" title="二分查找与二分答案"></a>二分查找与二分答案</h2><pre><code>二分查找：
-int k=lower_bound(a,a+n, l)-a;
-第一个大于或者等于
-如果不存在则判断a【k】是否等于该值
-二分答案：
-
-while (r - l &gt; 1e-8) &#123;
-    // 步骤 A: 找中间值
-    double mid = (l + r) / 2;
-    // 步骤 B: 判断
-    if (mid * mid * mid &lt; x) l = mid;
-    else r = mid;
-&#125;
-</code></pre>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406191657.png"></p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406191710.png"></p>
-<pre><code>#include&lt;iostream&gt;
-
-using namespace std;
-const int N=100005;
-int n,q,x,a[N];
-int main()&#123;
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;q);
-    for(int i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
-    while(q--)&#123;
-        scanf(&quot;%d&quot;,&amp;x);
-        int l=0,r=n-1;
-        while(l&lt;r)&#123;//找到第一个x
-            int mid =(l+r)&gt;&gt;1;
-            if(a[mid]&lt;x)l=mid+1;
-            else r=mid;
-        &#125;
-        if(a[l]!=x)&#123;
-            printf(&quot;-1 -1\n&quot;);
-            continue;
-        &#125;
-        int l1=l,r1=n;
-        while(l1+1&lt;r1)&#123;//找最后一个x
-            int mid = (l1+r1)&gt;&gt;1;
-            if(a[mid]&lt;=x)l1=mid;
-            else r1=mid;
-        &#125;
-        cout&lt;&lt;l&lt;&lt;&quot; &quot;&lt;&lt;l1&lt;&lt;endl;
-    &#125;
-    return 0;
-&#125;
-</code></pre>
-<p>&amp;&amp; </p>
-<pre><code>#include &lt;bits/stdc++.h&gt;
-
-using namespace std;
-int main()&#123;
-    int i,j,n,m,a[100001],l;
-    cin&gt;&gt;n&gt;&gt;m;
-    for(int i=0;i&lt;n;i++)
-        cin&gt;&gt;a[i];
-    for(int j=0;j&lt;m;j++)
-    &#123;
-        cin&gt;&gt;l;
-        int k=lower_bound(a,a+n, l)-a;
-        if(k==n||a[k]!=l)&#123;cout&lt;&lt;-1&lt;&lt;&quot; &quot;&lt;&lt;-1&lt;&lt;endl;&#125;
-        else 
-        &#123;
-            int h=upper_bound(a,a+n,l)-a-1;
-            cout&lt;&lt;k&lt;&lt;&quot; &quot;&lt;&lt;h&lt;&lt;endl;
-        &#125;
-        
-    &#125;
-    return 0;
-    
-&#125;
-</code></pre>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406191830.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406191921.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406192003.png"></p>
-<p>lower_bound( )和upper_bound( )都是利用二分查找的方法在一个排好序的数组中进行查找的。</p>
-<p>lower_bound( begin,end,num)：从数组的begin位置到end-1位置二分查找第一个 大于或等于 num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。</p>
-<p>upper_bound( begin,end,num)：从数组的begin位置到end-1位置二分查找第一个大于num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。</p>
-<p>在从大到小的排序数组中，重载lower_bound()和upper_bound()</p>
-<p>lower_bound( begin,end,num,greater<type>() ):从数组的begin位置到end-1位置二分查找第一个小于或等于num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。</p>
-<p>upper_bound( begin,end,num,greater<type>() ):从数组的begin位置到end-1位置二分查找第一个小于num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。‘</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220406194230.png"></p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-using namespace std;
-double x;
-int main() &#123;
-    cin &gt;&gt; x;
-    // 确定边界值
-    double l = -100000, r = 100000;
-    // 注意循环条件处理精度问题
-    while (r - l &gt; 1e-8) &#123;
-        // 步骤 A: 找中间值
-        double mid = (l + r) / 2;
-        // 步骤 B: 判断
-        if (mid * mid * mid &lt; x) l = mid;
-        else r = mid;
-    &#125;
-    printf(&quot;%.6f&quot;, r);
-    return 0;
-&#125;
-
-</code></pre>
-]]></content>
-  </entry>
-  <entry>
-    <title>递增三元组</title>
-    <url>/2022/03/31/----6/</url>
-    <content><![CDATA[<h1 id="递增三元组"><a href="#递增三元组" class="headerlink" title="递增三元组"></a>递增三元组</h1><pre><code>算法基础：模拟与排序
-writer：宋丁沣
-参考：macat、fchunwww
-</code></pre>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407111913.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407111925.png"></p>
-<p>思考：看到1e5的数，可能会爆int，所以开long long int</p>
-<pre><code>#include &lt;iostream&gt;
-#include&lt;algorithm&gt;
-
-using namespace std;
-int n ;
-const int N=1e5+5;
-long long int a[N],b[N],c[N],sum;
-int main() &#123;
-//根据10的5次方-&gt;可推出解题方法可能是二分加遍历
-//  三个数组向对比，可知B数组与A，C数组都有联系，故以B数组入手
-//  遍历B的所有数，找出A数组中，每个小于这个数的个数，找出C数组中每个大于这个数的个           人，相乘，就是包含B这个数的所有三元组的个数。
-    cin&gt;&gt;n;
-    for(int i=0;i&lt;n;i++)cin&gt;&gt;a[i];
-    for(int i=0;i&lt;n;i++)cin&gt;&gt;b[i];
-    for(int i=0;i&lt;n;i++)cin&gt;&gt;c[i];
-//  ----------------------------------------
-    sort(a,a+n);
-    sort(b,b+n);
-    sort(c,c+n);
-//  ----------------------------------------
-    for(int i=0;i&lt;n;i++)
-    &#123;
-/*
-        int a[10]=&#123;1,2,4,5,6,7,8,9&#125;;
-        cout&lt;&lt;lower_bound(a, a+10,3)&lt;&lt;endl;//返回的是这个值的地址
-        cout&lt;&lt;(lower_bound(a, a+10,3)-a);//返回第一个&gt;=3的数的坐标
-        //  该坐标的值的值正好是小于3的数的个数
-*/
-        long long int Min = (lower_bound(a, a+n,b[i])-a);//A中小于这个数的个数
-//      cout&lt;&lt;Min&lt;&lt;endl;
-        long long int Max = n-(upper_bound(c, c+n, b[i])-c);//C中大于这个数的个数
-//      cout&lt;&lt;Max&lt;&lt;endl;
-        sum+=Min*Max;
-//      cout&lt;&lt;sum&lt;&lt;endl;
-    &#125;
-    cout&lt;&lt;sum&lt;&lt;endl;
-
-return 0;
-
-&#125;
-</code></pre>
-]]></content>
-  </entry>
-  <entry>
-    <title>双指针算法</title>
-    <url>/2022/04/07/---/</url>
-    <content><![CDATA[<h2 id="双指针算法"><a href="#双指针算法" class="headerlink" title="双指针算法"></a>双指针算法</h2><p> <img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407110349.png"><br> 解：</p>
-<pre><code>#include&lt;iostream&gt;
-using namespace std;
-int n,a[100005],k,ans,q[100005],l;
-int main()&#123;
-   cin&gt;&gt;n;
-   for(int i=0;i&lt;n;i++)&#123;
-       cin&gt;&gt;a[i];
-   &#125;
-   for(int i=0,j=0;i&lt;n;i++)&#123;
-       q[a[i]]++;
-       while(q[a[i]]&gt;1&amp;&amp;j&lt;=i)&#123;
-           q[a[j]]--;
-           j++;
-       &#125;
-       ans=max(ans,i-j+1);
-   &#125;
-   cout&lt;&lt;ans;
-   return 0;
-&#125;
-</code></pre>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407110453.png"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>JavaWeb实验二操作笔记</title>
-    <url>/2022/03/20/JavaWeb%E5%AE%9E%E9%AA%8C%E4%BA%8C%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="JavaWeb实验二操作笔记"><a href="#JavaWeb实验二操作笔记" class="headerlink" title="JavaWeb实验二操作笔记"></a>JavaWeb实验二操作笔记</h1><pre><code>writer：宋丁沣
-</code></pre>
-<h3 id="1、创建一个动态web应用"><a href="#1、创建一个动态web应用" class="headerlink" title="1、创建一个动态web应用"></a>1、创建一个动态web应用</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192712.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192720.png"></p>
-<h3 id="2、将两个html文件集成到webContent目录下"><a href="#2、将两个html文件集成到webContent目录下" class="headerlink" title="2、将两个html文件集成到webContent目录下"></a>2、将两个html文件集成到webContent目录下</h3><pre><code>注意将html文件名改为jsp，同时将代码中的html改为jsp
-</code></pre>
-<h3 id="3、创建一个Emp实体Bean"><a href="#3、创建一个Emp实体Bean" class="headerlink" title="3、创建一个Emp实体Bean"></a>3、创建一个Emp实体Bean</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192731.png"></p>
-<p>先定义好参数     </p>
-<pre><code>package edu.hue.jk.db;
-import java.sql.*;
-public class Emp &#123;
-private int empno;
-private String ename;
-private Date hiredate;
-&#125;
-</code></pre>
-<p>  再将方法定义出来<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192814.png"></p>
-<h3 id="4、在两个jsp文件中引入Emp，用以替换之前的静态代码"><a href="#4、在两个jsp文件中引入Emp，用以替换之前的静态代码" class="headerlink" title="4、在两个jsp文件中引入Emp，用以替换之前的静态代码"></a>4、在两个jsp文件中引入Emp，用以替换之前的静态代码</h3><pre><code>&lt;%@ page import=&quot;java.sql.Date&quot; %&gt;
-&lt;%@ page import=&quot;edu.hue.jk.db.Emp&quot; %&gt;
-----------------------------------------
-&lt;%
-Emp e1 = new Emp();//定义一个对象
-e1.setEmpno(1);//设置该对象的学号
-e1.setEname(&quot;Tom&quot;);//设置该对象的姓名
-e1.setHiredate(Date.valueOf(&quot;2018-09-01&quot;));//设置该对象的信息，注意：valueOf中的O要大写
-%&gt;
------------------------------------------
-&lt;td&gt;&lt;%=e1.getEmpno() %&gt;&lt;/td&gt;
-&lt;td&gt;&lt;%=e1.getEname() %&gt;&lt;/td&gt;
-&lt;td&gt;&lt;%=e1.getHiredate() %&gt;&lt;/td&gt;
-//获取值
-</code></pre>
-<h3 id="实验2完成"><a href="#实验2完成" class="headerlink" title="实验2完成"></a>实验2完成</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404192826.png"></p>
-<p>emp_list_jsp 完整代码</p>
-<pre><code>&lt;%@ page import=&quot;java.sql.Date&quot; %&gt;
-&lt;%@ page import=&quot;edu.hue.jk.db.Emp&quot; %&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;%
-Emp e1 = new Emp();
-e1.setEmpno(1);
-e1.setEname(&quot;Tom&quot;);
-e1.setHiredate(Date.valueOf(&quot;2018-09-01&quot;));
-Emp e2 = new Emp();
-e2.setEmpno(2);
-e2.setEname(&quot;Timo&quot;);
-e2.setHiredate(Date.valueOf(&quot;2019-08-02&quot;));
-%&gt;
-&lt;table border=&quot;1&quot; width=&quot;80%&quot; align=&quot;center&quot;    height=&quot;100&quot;&gt;
-        &lt;tr&gt;
-            &lt;td&gt;
-                empno
-            &lt;/td&gt;
-            &lt;td&gt;
-                ename
-            &lt;/td&gt;
-            &lt;td&gt;
-                hiredate
-            &lt;/td&gt;
-            &lt;td&gt;
-                operation
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-    &lt;td&gt;&lt;%=e1.getEmpno() %&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;%=e1.getEname() %&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;%=e1.getHiredate() %&gt;&lt;/td&gt;
-            &lt;td&gt;
-                &lt;a href=&quot;emp_edit.jsp&quot;&gt;edit&lt;/a&gt;
-                &lt;a href=&quot;delete&quot;&gt;del&lt;/a&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-    &lt;td&gt;&lt;%=e2.getEmpno() %&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;%=e2.getEname() %&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;%=e2.getHiredate() %&gt;&lt;/td&gt;
-            &lt;td&gt;
-                &lt;a href=&quot;emp_edit.jsp&quot;&gt;edit&lt;/a&gt;
-                &lt;a href=&quot;delete&quot;&gt;del&lt;/a&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;
-                &lt;a href=&quot;insert&quot;&gt;add&lt;/a&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/table&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-]]></content>
-  </entry>
-  <entry>
-    <title>区间分组</title>
-    <url>/2022/04/04/----5/</url>
-    <content><![CDATA[<h1 id="区间分组"><a href="#区间分组" class="headerlink" title="区间分组"></a>区间分组</h1><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407111842.png"><br>思考：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407111855.png"></p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include&lt;queue&gt;
-using namespace std;
-
-const int N=100005;
-typedef pair&lt;int ,int &gt;PII;
-PII a[2*N];
-int x,y,idx,ans;
-
-int main() &#123;
-   int n;
-   cin&gt;&gt;n;
-   for(int i=0;i&lt;n;i++)&#123;
-      cin&gt;&gt;(a[idx].first)&gt;&gt;(a[idx+1].first);
-      a[idx].second=0;//左端点负值未0
-      a[idx+1].second=1;//右端点赋值为1
-      idx=idx+2;
-   &#125;
-   sort(a, a+idx);
-   int maxx=-1;
-   int ans=0;
-   for(int i=0;i&lt;idx;i++)&#123;
-      if(a[i].second==0)ans++;
-      maxx=max(ans,maxx);
-      if(a[i].second==1)ans--;
-   &#125;
-   cout&lt;&lt;maxx&lt;&lt;endl;
-
-   return 0;
-&#125;
-</code></pre>
-]]></content>
-  </entry>
-  <entry>
-    <title>SQL语言</title>
-    <url>/2022/03/19/SQL%E8%AF%AD%E8%A8%80/</url>
-    <content><![CDATA[<h1 id="SQL语言"><a href="#SQL语言" class="headerlink" title="SQL语言"></a>SQL语言</h1><h2 id="1、模式定义"><a href="#1、模式定义" class="headerlink" title="1、模式定义"></a>1、模式定义</h2><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193540.png"><br>例题：</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193549.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193609.png"></p>
-<h2 id="2、模式删除"><a href="#2、模式删除" class="headerlink" title="2、模式删除"></a>2、模式删除</h2><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193620.png"><br>注：<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193627.png"></p>
-<h2 id="3、表的定义与删除"><a href="#3、表的定义与删除" class="headerlink" title="3、表的定义与删除"></a>3、表的定义与删除</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404212606.png"></p>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193650.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193701.png"><br>注：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193713.png"></p>
-<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193723.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193732.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193738.png"></p>
-<h2 id="4、索引的建立与删除"><a href="#4、索引的建立与删除" class="headerlink" title="4、索引的建立与删除"></a>4、索引的建立与删除</h2><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193754.png"></p>
-<h3 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193801.png"><br>注：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193820.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193831.png"></p>
-<h3 id="修改-1"><a href="#修改-1" class="headerlink" title="修改"></a>修改</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193836.png"></p>
-<h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193842.png"></p>
-<h2 id="5、查询"><a href="#5、查询" class="headerlink" title="5、查询"></a>5、查询</h2><h3 id="查询所有列-amp-查询部分列"><a href="#查询所有列-amp-查询部分列" class="headerlink" title="查询所有列&amp;查询部分列"></a>查询所有列&amp;查询部分列</h3><p>例题：</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193944.png"></p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193953.png"></p>
-<h3 id="结果去重"><a href="#结果去重" class="headerlink" title="结果去重"></a>结果去重</h3><pre><code>加上distinct关键词就好了
-放在需要去重打字段的前面
-</code></pre>
-<h3 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404212549.png"></p>
-<pre><code>只要不是空都会算一个，相同的也会算一个
-</code></pre>
-<h3 id="分组查询（group-by，如果要进行筛选，就用having-x3D-where-条件）"><a href="#分组查询（group-by，如果要进行筛选，就用having-x3D-where-条件）" class="headerlink" title="分组查询（group by，如果要进行筛选，就用having&#x3D;where-条件）"></a>分组查询（group by，如果要进行筛选，就用having&#x3D;where-条件）</h3><h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><h4 id="等值连接（自身连接）"><a href="#等值连接（自身连接）" class="headerlink" title="等值连接（自身连接）"></a>等值连接（自身连接）</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194013.png">    </p>
-<pre><code>两个表的笛卡尔积附加一个等值的条件，就用这个条件合在了一起
-</code></pre>
-<h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><h4 id="左连接"><a href="#左连接" class="headerlink" title="左连接"></a>左连接</h4><pre><code>left outer join
-就是把左边这个表和右边那个表根据一个条件连接起来，最后再加上左表剩余的部分
-注：剩余的值虽然保留在结果中，但是会加null
-</code></pre>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194020.png"></p>
-<h3 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h3><pre><code>select 字段（*） from 哪个表 where 该条件存在于 in （一个查询）范围内的数据
-</code></pre>
-<h4 id="带有any-all的子查询"><a href="#带有any-all的子查询" class="headerlink" title="带有any all的子查询"></a>带有any all的子查询</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194027.png"></p>
-<pre><code>找出大于后面范围的所有数据
-</code></pre>
-<h4 id="exists"><a href="#exists" class="headerlink" title="exists"></a>exists</h4><p>例题：</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194035.png"></p>
-<h3 id="集合查询"><a href="#集合查询" class="headerlink" title="集合查询"></a>集合查询</h3><p>并（union）</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194125.png"></p>
-<p>交（intersect）<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194134.png"></p>
-<p>差（except）<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194143.png"></p>
-<h2 id="6、数据的插入、修改、删除"><a href="#6、数据的插入、修改、删除" class="headerlink" title="6、数据的插入、修改、删除"></a>6、数据的插入、修改、删除</h2><h4 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194150.png"></p>
-<h4 id="修改-2"><a href="#修改-2" class="headerlink" title="修改"></a>修改</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194203.png"></p>
-<h4 id="删除-2"><a href="#删除-2" class="headerlink" title="删除"></a>删除</h4><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194214.png"></p>
-<h2 id="7、视图"><a href="#7、视图" class="headerlink" title="7、视图"></a>7、视图</h2><h3 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194221.png"></p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194225.png"><br>例题：<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194232.png"></p>
-<h3 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194249.png"></p>
-<h3 id="查询视图"><a href="#查询视图" class="headerlink" title="查询视图"></a>查询视图</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404194259.png"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>关系数据库</title>
-    <url>/2022/03/03/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
-    <content><![CDATA[<h1 id="关系数据库"><a href="#关系数据库" class="headerlink" title="关系数据库"></a>关系数据库</h1><pre><code>author：宋丁沣
-</code></pre>
-<h2 id="一、关系代数语言"><a href="#一、关系代数语言" class="headerlink" title="一、关系代数语言"></a>一、关系代数语言</h2><h3 id="1、关系代数代数运算符号"><a href="#1、关系代数代数运算符号" class="headerlink" title="1、关系代数代数运算符号"></a>1、关系代数代数运算符号</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193149.png"></p>
-<h5 id="其中注意：A-B的实质"><a href="#其中注意：A-B的实质" class="headerlink" title="其中注意：A-B的实质"></a>其中注意：A-B的实质</h5><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193156.png"></h2><h3 id="2、笛卡尔积"><a href="#2、笛卡尔积" class="headerlink" title="2、笛卡尔积"></a>2、笛卡尔积</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193202.png"></p>
-<hr>
-<h3 id="3、选择"><a href="#3、选择" class="headerlink" title="3、选择"></a>3、选择<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193225.png"></h3><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193234.png"></h2><p>例题：</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193505.png"></p>
-<p>格式：<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193308.png">条件（在哪个表）</p>
-<pre><code>但是只能查该表的所有字段，如果需要查具体的字段，比如姓名，性别什么的，则需要引用投影。 
-</code></pre>
-<hr>
-<h3 id="4、投影"><a href="#4、投影" class="headerlink" title="4、投影"></a>4、投影<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193319.png"></h3><p>例题<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193326.png"></p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193333.png"></p>
-<h2 id="格式：具体要找的字条件（表的名字））"><a href="#格式：具体要找的字条件（表的名字））" class="headerlink" title="格式：具体要找的字条件（表的名字））"></a>格式：<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193345.png">具体要找的字<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193355.png">条件（表的名字））</h2><h3 id="5、连接"><a href="#5、连接" class="headerlink" title="5、连接"></a>5、连接</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193403.png"></p>
-<h5 id="自然连接：把共同属性进行等值连m"><a href="#自然连接：把共同属性进行等值连m" class="headerlink" title="自然连接：把共同属性进行等值连m"></a>自然连接：把共同属性进行等值连m</h5><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193412.png"></p>
-<pre><code>悬浮元组：没被自然连接用到的元组
-</code></pre>
-<h3 id="6、除"><a href="#6、除" class="headerlink" title="6、除"></a>6、除</h3><h5 id="除：保留R中满足S的，而且R中列要去掉S的列"><a href="#除：保留R中满足S的，而且R中列要去掉S的列" class="headerlink" title="除：保留R中满足S的，而且R中列要去掉S的列"></a>除：保留R中满足S的，而且R中列要去掉S的列</h5><p>例题</p>
-<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193424.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193437.png"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>数据挖掘python</title>
     <url>/2022/03/03/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98python/</url>
     <content><![CDATA[<h1 id="数据挖掘python"><a href="#数据挖掘python" class="headerlink" title="数据挖掘python"></a>数据挖掘python</h1><hr>
@@ -803,9 +1476,56 @@ int main()
 ]]></content>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/04/08/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%8F%82%E8%B5%9B%E4%BA%BA%E5%91%98%E7%BB%9F%E8%AE%A1/</url>
-    <content><![CDATA[<h1 id="蓝桥杯参赛人员统计"><a href="#蓝桥杯参赛人员统计" class="headerlink" title="蓝桥杯参赛人员统计"></a>蓝桥杯参赛人员统计</h1>]]></content>
+    <title>递增三元组</title>
+    <url>/2022/03/31/%E9%80%92%E5%A2%9E%E4%B8%89%E5%85%83%E7%BB%84/</url>
+    <content><![CDATA[<h1 id="递增三元组"><a href="#递增三元组" class="headerlink" title="递增三元组"></a>递增三元组</h1><pre><code>算法基础：模拟与排序
+writer：宋丁沣
+参考：macat、fchunwww
+</code></pre>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407111913.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220407111925.png"></p>
+<p>思考：看到1e5的数，可能会爆int，所以开long long int</p>
+<pre><code>#include &lt;iostream&gt;
+#include&lt;algorithm&gt;
+
+using namespace std;
+int n ;
+const int N=1e5+5;
+long long int a[N],b[N],c[N],sum;
+int main() &#123;
+//根据10的5次方-&gt;可推出解题方法可能是二分加遍历
+//  三个数组向对比，可知B数组与A，C数组都有联系，故以B数组入手
+//  遍历B的所有数，找出A数组中，每个小于这个数的个数，找出C数组中每个大于这个数的个           人，相乘，就是包含B这个数的所有三元组的个数。
+    cin&gt;&gt;n;
+    for(int i=0;i&lt;n;i++)cin&gt;&gt;a[i];
+    for(int i=0;i&lt;n;i++)cin&gt;&gt;b[i];
+    for(int i=0;i&lt;n;i++)cin&gt;&gt;c[i];
+//  ----------------------------------------
+    sort(a,a+n);
+    sort(b,b+n);
+    sort(c,c+n);
+//  ----------------------------------------
+    for(int i=0;i&lt;n;i++)
+    &#123;
+/*
+        int a[10]=&#123;1,2,4,5,6,7,8,9&#125;;
+        cout&lt;&lt;lower_bound(a, a+10,3)&lt;&lt;endl;//返回的是这个值的地址
+        cout&lt;&lt;(lower_bound(a, a+10,3)-a);//返回第一个&gt;=3的数的坐标
+        //  该坐标的值的值正好是小于3的数的个数
+*/
+        long long int Min = (lower_bound(a, a+n,b[i])-a);//A中小于这个数的个数
+//      cout&lt;&lt;Min&lt;&lt;endl;
+        long long int Max = n-(upper_bound(c, c+n, b[i])-c);//C中大于这个数的个数
+//      cout&lt;&lt;Max&lt;&lt;endl;
+        sum+=Min*Max;
+//      cout&lt;&lt;sum&lt;&lt;endl;
+    &#125;
+    cout&lt;&lt;sum&lt;&lt;endl;
+
+return 0;
+
+&#125;
+</code></pre>
+]]></content>
   </entry>
   <entry>
     <title>高斯消元解线性方程组</title>
@@ -895,6 +1615,30 @@ return 0;
 a[i][n] -= a[j][n] * a[i][j];//x_j * x_j的系数
 </code></pre>
 <p>其中a[j][n]代表xj的的值（因为j行只有xj和结果这两项）</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>关系数据库</title>
+    <url>/2022/03/03/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
+    <content><![CDATA[<h1 id="关系数据库"><a href="#关系数据库" class="headerlink" title="关系数据库"></a>关系数据库</h1><pre><code>author：宋丁沣
+</code></pre>
+<h2 id="一、关系代数语言"><a href="#一、关系代数语言" class="headerlink" title="一、关系代数语言"></a>一、关系代数语言</h2><h3 id="1、关系代数代数运算符号"><a href="#1、关系代数代数运算符号" class="headerlink" title="1、关系代数代数运算符号"></a>1、关系代数代数运算符号</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193149.png"></p>
+<h5 id="其中注意：A-B的实质"><a href="#其中注意：A-B的实质" class="headerlink" title="其中注意：A-B的实质"></a>其中注意：A-B的实质</h5><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193156.png"></h2><h3 id="2、笛卡尔积"><a href="#2、笛卡尔积" class="headerlink" title="2、笛卡尔积"></a>2、笛卡尔积</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193202.png"></p>
+<hr>
+<h3 id="3、选择"><a href="#3、选择" class="headerlink" title="3、选择"></a>3、选择<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193225.png"></h3><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193234.png"></h2><p>例题：</p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193505.png"></p>
+<p>格式：<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193308.png">条件（在哪个表）</p>
+<pre><code>但是只能查该表的所有字段，如果需要查具体的字段，比如姓名，性别什么的，则需要引用投影。 
+</code></pre>
+<hr>
+<h3 id="4、投影"><a href="#4、投影" class="headerlink" title="4、投影"></a>4、投影<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193319.png"></h3><p>例题<br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193326.png"></p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193333.png"></p>
+<h2 id="格式：具体要找的字条件（表的名字））"><a href="#格式：具体要找的字条件（表的名字））" class="headerlink" title="格式：具体要找的字条件（表的名字））"></a>格式：<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193345.png">具体要找的字<img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193355.png">条件（表的名字））</h2><h3 id="5、连接"><a href="#5、连接" class="headerlink" title="5、连接"></a>5、连接</h3><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193403.png"></p>
+<h5 id="自然连接：把共同属性进行等值连m"><a href="#自然连接：把共同属性进行等值连m" class="headerlink" title="自然连接：把共同属性进行等值连m"></a>自然连接：把共同属性进行等值连m</h5><p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193412.png"></p>
+<pre><code>悬浮元组：没被自然连接用到的元组
+</code></pre>
+<h3 id="6、除"><a href="#6、除" class="headerlink" title="6、除"></a>6、除</h3><h5 id="除：保留R中满足S的，而且R中列要去掉S的列"><a href="#除：保留R中满足S的，而且R中列要去掉S的列" class="headerlink" title="除：保留R中满足S的，而且R中列要去掉S的列"></a>除：保留R中满足S的，而且R中列要去掉S的列</h5><p>例题</p>
+<p><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193424.png"><br><img src="https://tuccc.obs.cn-north-4.myhuaweicloud.com/img/20220404193437.png"></p>
 ]]></content>
   </entry>
 </search>
